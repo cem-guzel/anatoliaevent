@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql" // "sqlite" yazan yeri "postgresql" yaptık
+  url      = env("DATABASE_URL") // Doğrudan Vercel'in gizli kasasından çekecek
+}
+
+// Galeri Tablomuz aynen kalıyor
+model GalleryImage {
+  id        String   @id @default(cuid())
+  publicId  String   
+  url       String   
+  altText   String?  
+  createdAt DateTime @default(now())
+}

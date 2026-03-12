@@ -16,13 +16,13 @@ export default function Home() {
           
           {/* --- VİDEO ARKA PLAN EKLENDİ --- */}
           {/* 1. MASAÜSTÜ İÇİN YATAY VİDEO (Sadece PC ve Tablette çalışır) */}
-          <motion.video
+          <motion.img
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
             className="hidden md:block absolute inset-0 z-0 w-full h-full object-cover"
-            src="/1.mp4" /* Geniş ekranlar için yatay video adın */
-            autoPlay loop muted playsInline
+            src="/7.jpeg" /* Geniş ekranlar için yatay video adın */
+            
           />
 
           {/* 2. MOBİL İÇİN DİKEY VİDEO (Sadece Telefonlarda çalışır) */}

@@ -56,7 +56,7 @@ export default function About() {
             className="w-full lg:w-1/2 h-[600px] md:h-[800px] relative rounded-t-full overflow-hidden shadow-2xl"
           >
             <img 
-              src="1.jpeg" 
+              src="7.jpeg" 
               alt="Anatolia Event Atmosferi" 
               className="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-1000" 
             />

@@ -4,35 +4,35 @@ import Link from "next/link";
 import { Star } from "lucide-react";
 import Navbar from "../../components/Navbar";
 
-// Tamamen senin istediğin 4 Ana Hizmet
+// Senin belirlediğin sıralama ve doğal, Türkçe alt başlıklar
 const servicesList = [
   {
     id: "01",
+    title: "Davet & Organizasyon",
+    subtitle: "SİZE ÖZEL KUTLAMALAR",
+    description: "Baby shower, doğum günü, mezuniyet veya kurumsal yemekler... Hangi etkinliği kutluyor olursanız olun, doğa ile iç içe prestijli bir deneyim sunmak için tüm detayları biz düşünüyoruz.",
+    features: ["Amaca Uygun Dekorasyon", "Premium İkramlar", "Profesyonel Karşılama", "Esnek Kapasite Seçenekleri"],
+  },
+  {
+    id: "02",
     title: "Kır Düğünü",
-    subtitle: "SIGNATURE OUTDOOR WEDDING",
+    subtitle: "MASAL GİBİ BİR GECE",
     description: "Asırlık ağaçların gölgesinde, doğanın kalbinde bir masal... Geleneksel kır düğünü algısını lüks detaylar, size özel tasarlanmış menüler ve benzersiz bir atmosferle yeniden tanımlıyoruz.",
     features: ["Kişiselleştirilmiş Menü Tadımı", "Özel Karşılama Kokteyli", "Profesyonel Ses ve Işık", "Gelin & Damat Hazırlık Odası"],
   },
   {
-    id: "02",
-    title: "Nişan",
-    subtitle: "ELEGANT ENGAGEMENT",
-    description: "Evliliğe atılan ilk büyük adım. Ailelerin bir araya geldiği bu özel günü, kusursuz masa düzenleri, romantik aydınlatmalar ve zarif bir atmosfer ile taçlandırıyoruz.",
-    features: ["Konsept Tasarımı", "Özel Fotoğraf Çekim Alanları", "Zarif Masa Süslemeleri", "DJ ve Müzik Organizasyonu"],
-  },
-  {
     id: "03",
     title: "İsteme & Söz",
-    subtitle: "TRADITIONAL & INTIMATE",
+    subtitle: "GELENEKSEL VE SAMİMİ",
     description: "Geleneklerimizin en güzel yansıması... Sadece en yakınlarınızla bir arada olacağınız, samimi, sıcak ama lüksünden hiçbir şey kaybetmeyen butik söz ve isteme organizasyonları.",
     features: ["Butik Oturma Düzeni", "Özel Türk Kahvesi Sunumu", "Arka Fon ve Çiçek Süsleme", "Karşılama Ekibi"],
   },
   {
     id: "04",
-    title: "Davet & Organizasyon",
-    subtitle: "EXCLUSIVE CELEBRATIONS",
-    description: "Baby shower, doğum günü, mezuniyet veya kurumsal yemekler... Hangi etkinliği kutluyor olursanız olun, doğa ile iç içe prestijli bir deneyim sunmak için tüm detayları biz düşünüyoruz.",
-    features: ["Amaca Uygun Dekorasyon", "Premium İkramlar", "Profesyonel Karşılama", "Esnek Kapasite Seçenekleri"],
+    title: "Nişan",
+    subtitle: "ZARİF BİR BAŞLANGIÇ",
+    description: "Evliliğe atılan ilk büyük adım. Ailelerin bir araya geldiği bu özel günü, kusursuz masa düzenleri, romantik aydınlatmalar ve zarif bir atmosfer ile taçlandırıyoruz.",
+    features: ["Konsept Tasarımı", "Özel Fotoğraf Çekim Alanları", "Zarif Masa Süslemeleri", "DJ ve Müzik Organizasyonu"],
   }
 ];
 
@@ -43,6 +43,7 @@ export default function ServicesPage() {
       <Navbar />
 
       <div className="fixed inset-0 w-full h-full z-0">
+        {/* Arka plan görseli (İstersen burayı da ana sayfadaki gibi bir video ile değiştirebilirsin) */}
         <img 
           src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=3270&auto=format&fit=crop" 
           alt="Dark Wedding Background"
@@ -56,7 +57,7 @@ export default function ServicesPage() {
         <section className="h-screen flex flex-col items-center justify-center text-center px-6 relative">
             <div className="space-y-6 animate-in fade-in slide-in-from-bottom-8 duration-1000">
                 <span className="block text-white/70 text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase">
-                    Anatolia Signature Services
+                    Anatolia İmza Konseptleri
                 </span>
                 <h1 className="text-5xl md:text-8xl font-serif text-white font-light leading-none">
                     Anatolia <br/> Hizmetler

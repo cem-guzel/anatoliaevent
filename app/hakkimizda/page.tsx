@@ -10,10 +10,10 @@ export default function AboutPage() {
       <Navbar />
       <main className="bg-stone-50 min-h-screen text-stone-900 font-light">
         
-        {/* --- HERO BÖLÜMÜ (Karanlık ve Sinematik Giriş) --- */}
+        {/* --- HERO BÖLÜMÜ (Şiirsel ve Doğal Giriş) --- */}
         <section className="relative h-[70vh] w-full flex flex-col items-center justify-center text-center px-4 bg-stone-950 overflow-hidden">
           
-        <motion.div
+          <motion.div
             initial={{ scale: 1.1, opacity: 0 }}
             animate={{ scale: 1, opacity: 0.5 }}
             transition={{ duration: 2, ease: "easeOut" }}
@@ -28,17 +28,17 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="text-white/60 text-xs font-bold tracking-[0.4em] uppercase mb-6"
+              className="text-white/60 text-xs font-bold tracking-[0.4em] uppercase mb-4"
             >
-              Hikayemiz
+              Anatolia Event
             </motion.span>
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
-              className="text-4xl md:text-6xl lg:text-7xl font-extralight tracking-[0.15em] text-white uppercase mb-6 leading-tight"
+              className="text-3xl md:text-5xl lg:text-6xl font-light tracking-wide text-white mb-6 leading-tight"
             >
-              Doğanın <br /> Zarafetle Buluştuğu Yer
+              Hakkımızda
             </motion.h1>
           </div>
         </section>
@@ -52,7 +52,6 @@ export default function AboutPage() {
             transition={{ duration: 1 }}
             className="text-2xl md:text-4xl lg:text-5xl font-light leading-relaxed md:leading-snug tracking-wide text-stone-800"
           >
-            {/* Tırnak Hatası Çözüldü: Asil Tipografik Tırnaklar Kullanıldı */}
             &ldquo;Sıradan bir mekan değil, hayatınızın en değerli anlarına ev sahipliği yapacak kusursuz bir sahne tasarlamak istedik. Ağaçların gölgesinde, lüks ve doğallığın o ince çizgisinde yürüyoruz.&rdquo;
           </motion.h2>
           <motion.div 
@@ -91,7 +90,7 @@ export default function AboutPage() {
                 />
               </div>
 
-              {/* Sağ Taraf: Hikaye Metni */}
+              {/* Sağ Taraf: Hikaye Metni (Çatı garantisi buraya eklendi) */}
               <motion.div 
                 initial={{ opacity: 0, x: 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -106,13 +105,13 @@ export default function AboutPage() {
                 
                 <div className="space-y-6 text-stone-500 font-light leading-relaxed text-sm md:text-base tracking-wide">
                   <p>
-                    Anatolia Event&apos;in temelleri, klasik düğün salonlarının boğucu atmosferinden uzaklaşıp, doğanın ferahlığını beş yıldızlı otel konforuyla harmanlama fikriyle atıldı.
+                    İstanbul Avrupa Yakası&apos;nın en gözde lokasyonlarından Eyüpsultan&apos;da yer alan Anatolia Event&apos;in temelleri; kapalı düğün salonlarının boğucu atmosferinden uzaklaşıp, doğanın ferahlığını lüks davet konforuyla harmanlama fikriyle atıldı.
+                  </p>
+                  <p className="text-stone-700 font-medium">
+                    En çok tercih edilen açık hava kır düğünü mekanları arasında yer almamızın sırrı, özel mimari çatımız sayesinde hava koşullarını asla bir riske dönüştürmememizdir. Doğanın tam kalbinde, dört mevsim güvenli bir deneyim vadediyoruz.
                   </p>
                   <p>
-                    Menüdeki her bir tabağın sunumundan, masalardaki taze çiçeklerin kokusuna, geceye eşlik eden müziklerin frekansından, misafirlerinizi karşılayan ekibimizin gülümsemesine kadar hiçbir detayı şansa bırakmıyoruz.
-                  </p>
-                  <p>
-                    Çünkü biliyoruz ki; gerçek lüks, gösterişte değil, detaylara gösterilen özende gizlidir. Siz sadece o özel günün tadını çıkarın, geri kalan kusursuzluğu biz planlayalım.
+                    Söz, nişan ve kurumsal organizasyonlarınızda; masalardaki taze çiçeklerin kokusundan, geceye eşlik eden müziğin frekansına kadar hiçbir detayı şansa bırakmıyoruz. Siz sadece o özel günün tadını çıkarın, geri kalan kusursuzluğu biz planlayalım.
                   </p>
                 </div>
               </motion.div>
@@ -121,14 +120,13 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* --- BÖLÜM 3: MİMARİ VE KAPASİTE (Minimal Sayılar) --- */}
+        {/* --- BÖLÜM 3: MİMARİ VE KAPASİTE --- */}
         <section className="py-24 md:py-40 container mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-center divide-y md:divide-y-0 md:divide-x divide-stone-200">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 text-center divide-y md:divide-y-0 md:divide-x divide-stone-200">
             
-            {/* Yeni Eklenen: 4 İmza Konsept */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-              className="flex flex-col items-center pt-8 md:pt-0"
+              className="flex flex-col items-center justify-center py-8 md:py-0 w-full"
             >
               <span className="text-5xl md:text-7xl font-extralight text-stone-800 mb-4">4</span>
               <span className="text-xs font-light tracking-[0.3em] text-stone-400 uppercase">İmza Konsept</span>
@@ -136,7 +134,7 @@ export default function AboutPage() {
 
             <motion.div 
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex flex-col items-center pt-8 md:pt-0"
+              className="flex flex-col items-center justify-center py-8 md:py-0 w-full"
             >
               <span className="text-5xl md:text-7xl font-extralight text-stone-800 mb-4">5+</span>
               <span className="text-xs font-light tracking-[0.3em] text-stone-400 uppercase">Yıllık Tecrübe</span>
@@ -144,7 +142,7 @@ export default function AboutPage() {
 
             <motion.div 
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-col items-center pt-8 md:pt-0"
+              className="flex flex-col items-center justify-center py-8 md:py-0 w-full"
             >
               <span className="text-5xl md:text-7xl font-extralight text-stone-800 mb-4">∞</span>
               <span className="text-xs font-light tracking-[0.3em] text-stone-400 uppercase">Unutulmaz Anı</span>

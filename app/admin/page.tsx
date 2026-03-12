@@ -2,15 +2,16 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Lock, LogOut, UploadCloud, Image as ImageIcon, Trash2, Home, Loader2 } from "lucide-react";
+import { Lock, LogOut, UploadCloud, Image as ImageIcon, Trash2, Home, Loader2, PlayCircle } from "lucide-react";
 import { CldUploadWidget } from "next-cloudinary";
 import Link from "next/link";
 
-// Veritabanından gelecek fotoğrafın TypeScript tipi
+// Tipi güncelledik (resourceType eklendi)
 type GalleryImage = {
   id: string;
   publicId: string;
   url: string;
+  resourceType: string;
   createdAt: string;
 };
 
@@ -20,7 +21,6 @@ export default function AdminPage() {
   const [images, setImages] = useState<GalleryImage[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Oturum Kontrolü
   useEffect(() => {
     const authStatus = localStorage.getItem("anatolia_admin_auth");
     if (authStatus === "true") {
@@ -28,7 +28,6 @@ export default function AdminPage() {
     }
   }, []);
 
-  // Fotoğrafları Veritabanından Çekme
   const fetchImages = async () => {
     setIsLoading(true);
     try {
@@ -36,13 +35,12 @@ export default function AdminPage() {
       const data = await res.json();
       setImages(data);
     } catch (error) {
-      console.error("Fotoğraflar yüklenemedi", error);
+      console.error("İçerikler yüklenemedi", error);
     } finally {
       setIsLoading(false);
     }
   };
 
-  // Kullanıcı giriş yaptıysa fotoğrafları getir
   useEffect(() => {
     if (isAuthenticated) {
       fetchImages();
@@ -66,44 +64,39 @@ export default function AdminPage() {
     setIsAuthenticated(false);
   };
 
-  // Yükleme Başarılı Olunca Veritabanına Kaydet
   const handleUploadSuccess = async (result: unknown) => {
-    // any hatasından kurtulmak için güvenli tip kontrolü
-    const res = result as { info: { public_id: string, secure_url: string } };
+    const res = result as { info: { public_id: string, secure_url: string, resource_type: string } };
     
     if (res.info && typeof res.info === "object" && res.info.public_id) {
       try {
-        // API'mize fotoğraf verilerini yolluyoruz
         await fetch("/api/gallery", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             publicId: res.info.public_id,
             url: res.info.secure_url,
+            resourceType: res.info.resource_type, // YENİ: Video mu resim mi olduğunu API'ye yolla
           }),
         });
         
-        // Kayıt başarılı olunca listeyi yenile
         fetchImages();
       } catch (error) {
-        alert("Fotoğraf buluta yüklendi ancak veritabanına kaydedilemedi.");
+        alert("İçerik buluta yüklendi ancak veritabanına kaydedilemedi.");
       }
     }
   };
 
-  // Fotoğraf Silme İşlemi
   const handleDelete = async (id: string) => {
-    if (confirm("Bu fotoğrafı galeriden silmek istediğinize emin misiniz?")) {
+    if (confirm("Bu içeriği galeriden silmek istediğinize emin misiniz?")) {
       try {
         await fetch(`/api/gallery?id=${id}`, { method: "DELETE" });
-        fetchImages(); // Listeyi yenile
+        fetchImages();
       } catch (error) {
         alert("Silme işlemi başarısız oldu.");
       }
     }
   };
 
-  // 1. EKRAN: GİRİŞ EKRANI
   if (!isAuthenticated) {
     return (
       <main className="min-h-screen bg-stone-950 flex flex-col items-center justify-center p-6 relative overflow-hidden">
@@ -140,7 +133,6 @@ export default function AdminPage() {
     );
   }
 
-  // 2. EKRAN: KONTROL PANELİ
   return (
     <main className="min-h-screen bg-stone-50 text-stone-900 font-light">
       <header className="bg-white border-b border-stone-200 sticky top-0 z-50">
@@ -164,28 +156,32 @@ export default function AdminPage() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
           <div>
             <h2 className="text-3xl font-light tracking-[0.1em] uppercase mb-2">Galeri Yönetimi</h2>
-            <p className="text-stone-500 text-sm tracking-wide">Sitenizde görünen tüm fotoğrafları buradan ekleyip kaldırabilirsiniz.</p>
+            <p className="text-stone-500 text-sm tracking-wide">Sitenizde görünen tüm içerikleri buradan ekleyip kaldırabilirsiniz.</p>
           </div>
           
+          {/* YENİ: clientAllowedFormats'a mp4 ve mov eklendi. resourceType: "auto" yapıldı */}
           <CldUploadWidget 
             uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET} 
             onSuccess={handleUploadSuccess}
-            options={{ maxFiles: 10, clientAllowedFormats: ["jpeg", "png", "jpg", "webp"] }}
+            options={{ 
+              maxFiles: 10, 
+              clientAllowedFormats: ["jpeg", "png", "jpg", "webp", "mp4", "mov", "webm"],
+              resourceType: "auto" 
+            }}
           >
             {({ open }) => (
               <button onClick={() => open()} className="bg-stone-900 text-white hover:bg-stone-800 transition-colors duration-500 rounded-full h-14 px-8 text-xs tracking-[0.2em] uppercase font-semibold flex items-center gap-3 shadow-xl">
                 <UploadCloud strokeWidth={1.5} className="w-5 h-5" />
-                Yeni Fotoğraf Yükle
+                Yeni İçerik Yükle
               </button>
             )}
           </CldUploadWidget>
         </div>
 
-        {/* FOTOĞRAF LİSTESİ VEYA YÜKLENİYOR EKRANI */}
         {isLoading ? (
           <div className="flex flex-col items-center justify-center py-32 text-stone-400">
             <Loader2 className="w-10 h-10 animate-spin mb-4" />
-            <p className="text-sm uppercase tracking-widest font-light">Fotoğraflar Yükleniyor...</p>
+            <p className="text-sm uppercase tracking-widest font-light">İçerikler Yükleniyor...</p>
           </div>
         ) : images.length > 0 ? (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -195,14 +191,23 @@ export default function AdminPage() {
                 key={img.id} 
                 className="relative group bg-stone-200 rounded-2xl overflow-hidden aspect-[4/5] shadow-sm hover:shadow-xl transition-all duration-500"
               >
-                <img src={img.url} alt="Galeri" className="w-full h-full object-cover" />
+                {/* YENİ: Eğer video ise video oynat, değilse resim göster */}
+                {img.resourceType === "video" ? (
+                  <>
+                    <video src={img.url} className="w-full h-full object-cover" autoPlay loop muted playsInline />
+                    <div className="absolute top-4 left-4 bg-black/50 text-white p-2 rounded-full backdrop-blur-md">
+                      <PlayCircle strokeWidth={1.5} className="w-4 h-4" />
+                    </div>
+                  </>
+                ) : (
+                  <img src={img.url} alt="Galeri" className="w-full h-full object-cover" />
+                )}
                 
-                {/* Sil Butonu (Hover Olunca Çıkar) */}
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <button 
                     onClick={() => handleDelete(img.id)}
                     className="bg-red-500 text-white p-4 rounded-full hover:bg-red-600 transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300"
-                    title="Fotoğrafı Sil"
+                    title="İçeriği Sil"
                   >
                     <Trash2 strokeWidth={1.5} className="w-6 h-6" />
                   </button>
@@ -215,9 +220,9 @@ export default function AdminPage() {
             <div className="w-20 h-20 bg-stone-50 rounded-full flex items-center justify-center mb-6">
               <ImageIcon strokeWidth={1} className="w-10 h-10 text-stone-300" />
             </div>
-            <h3 className="text-xl font-light tracking-[0.1em] uppercase mb-2">Henüz Fotoğraf Yok</h3>
+            <h3 className="text-xl font-light tracking-[0.1em] uppercase mb-2">Henüz İçerik Yok</h3>
             <p className="text-stone-500 text-sm tracking-wide max-w-md mx-auto">
-              Sağ üstteki &quot;Yeni Fotoğraf Yükle&quot; butonuna tıklayarak ilk içeriğinizi yükleyin.
+              Sağ üstteki &quot;Yeni İçerik Yükle&quot; butonuna tıklayarak ilk görsel veya videonuzu yükleyin.
             </p>
           </div>
         )}

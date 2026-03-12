@@ -3,15 +3,15 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql" // "sqlite" yazan yeri "postgresql" yaptık
-  url      = env("DATABASE_URL") // Doğrudan Vercel'in gizli kasasından çekecek
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
-// Galeri Tablomuz aynen kalıyor
 model GalleryImage {
-  id        String   @id @default(cuid())
-  publicId  String   
-  url       String   
-  altText   String?  
-  createdAt DateTime @default(now())
+  id           String   @id @default(cuid())
+  publicId     String   
+  url          String   
+  altText      String?  
+  resourceType String   @default("image") // YENİ: Dosyanın video mu resim mi olduğunu tutacak
+  createdAt    DateTime @default(now())
 }

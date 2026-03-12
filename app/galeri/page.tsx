@@ -2,15 +2,17 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronLeft, ChevronRight, Maximize2, Loader2 } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Maximize2, Loader2, PlayCircle } from "lucide-react";
 import Navbar from "../../components/Navbar"; 
 import Cta from "../../components/Cta"; 
 
+// YENİ: resourceType eklendi
 type GalleryImage = {
   id: string;
   publicId: string;
   url: string;
   altText: string | null;
+  resourceType: string; 
   createdAt: string;
 };
 
@@ -27,7 +29,7 @@ export default function GalleryPage() {
         const data = await res.json();
         setImages(data);
       } catch (error) {
-        console.error("Fotoğraflar yüklenemedi:", error);
+        console.error("İçerikler yüklenemedi:", error);
       } finally {
         setIsLoading(false);
       }
@@ -107,7 +109,6 @@ export default function GalleryPage() {
             ></motion.div>
           </div>
 
-          {/* Zarif Scroll İndikatörü */}
           <motion.div 
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} 
@@ -122,7 +123,6 @@ export default function GalleryPage() {
         {/* --- İÇERİK BÖLÜMÜ --- */}
         <div className="container mx-auto px-6 md:px-12 py-24 md:py-32 min-h-[50vh] relative z-10">
           
-          {/* Koleksiyon Giriş Metni */}
           <div className="max-w-3xl mx-auto text-center mb-20 md:mb-28">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}
@@ -134,7 +134,7 @@ export default function GalleryPage() {
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.2 }}
               className="text-stone-500 font-light leading-relaxed tracking-wide text-sm md:text-base"
             >
-              Göz alıcı masa düzenleri, samimi anlar ve doğanın kalbinde gerçekleşen büyülü kutlamalar...Anatolia Event&apos; in kusursuz atmosferini ve imza dokunuşlarını yansıtan anlarımıza göz atın.
+              Göz alıcı masa düzenleri, samimi anlar ve doğanın kalbinde gerçekleşen büyülü kutlamalar... Anatolia Event&apos;in kusursuz atmosferini ve imza dokunuşlarını yansıtan anlarımıza göz atın.
             </motion.p>
           </div>
           
@@ -145,7 +145,7 @@ export default function GalleryPage() {
             </div>
           ) : images.length === 0 ? (
             <div className="text-center text-stone-400 py-20 border border-stone-200 rounded-3xl">
-              <p className="text-xs uppercase tracking-[0.3em] font-light">Galeriye henüz fotoğraf eklenmedi.</p>
+              <p className="text-xs uppercase tracking-[0.3em] font-light">Galeriye henüz içerik eklenmedi.</p>
             </div>
           ) : (
             <>
@@ -162,15 +162,33 @@ export default function GalleryPage() {
                       className="break-inside-avoid relative group overflow-hidden rounded-sm cursor-pointer bg-stone-100 shadow-sm"
                       onClick={() => openLightbox(index)}
                     >
-                      <img
-                        src={image.url}
-                        alt={image.altText || "Anatolia Event Galeri"}
-                        className="w-full h-auto object-cover transform group-hover:scale-[1.03] transition-transform duration-1000 ease-out"
-                        loading="lazy"
-                      />
+                      {/* YENİ: Video ise otomatik oynat, resim ise göster */}
+                      {image.resourceType === "video" ? (
+                        <>
+                          <video
+                            src={image.url}
+                            className="w-full h-auto object-cover transform group-hover:scale-[1.03] transition-transform duration-1000 ease-out"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                          />
+                          {/* Sağ üstte video ikonu */}
+                          <div className="absolute top-4 right-4 bg-black/30 backdrop-blur-sm p-2 rounded-full text-white/90 z-10">
+                            <PlayCircle className="w-4 h-4" strokeWidth={1.5} />
+                          </div>
+                        </>
+                      ) : (
+                        <img
+                          src={image.url}
+                          alt={image.altText || "Anatolia Event Galeri"}
+                          className="w-full h-auto object-cover transform group-hover:scale-[1.03] transition-transform duration-1000 ease-out"
+                          loading="lazy"
+                        />
+                      )}
                       
-                      {/* Yeni, Asil Hover Efekti */}
-                      <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-950/20 transition-all duration-700 flex flex-col items-center justify-center">
+                      {/* Asil Hover Efekti (İki durumda da çalışır) */}
+                      <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-950/20 transition-all duration-700 flex flex-col items-center justify-center z-20">
                         <div className="w-14 h-14 rounded-full border border-white/0 group-hover:border-white/40 backdrop-blur-sm flex items-center justify-center transform translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out">
                           <Maximize2 className="text-white w-5 h-5" strokeWidth={1} />
                         </div>
@@ -230,11 +248,22 @@ export default function GalleryPage() {
               transition={{ duration: 0.4 }}
               className="w-full h-full flex items-center justify-center p-4 md:p-24"
             >
-              <img
-                src={images[lightboxIndex].url}
-                alt={images[lightboxIndex].altText || "Galeri Görseli"}
-                className="max-w-full max-h-full object-contain rounded-md shadow-2xl"
-              />
+              {/* YENİ: Lightbox İçinde Video veya Resim Oynatma */}
+              {images[lightboxIndex].resourceType === "video" ? (
+                <video
+                  src={images[lightboxIndex].url}
+                  className="max-w-full max-h-full object-contain rounded-md shadow-2xl"
+                  controls
+                  autoPlay
+                  playsInline
+                />
+              ) : (
+                <img
+                  src={images[lightboxIndex].url}
+                  alt={images[lightboxIndex].altText || "Galeri Görseli"}
+                  className="max-w-full max-h-full object-contain rounded-md shadow-2xl"
+                />
+              )}
             </motion.div>
 
             <button onClick={showNext} className="absolute right-4 md:right-12 text-white/50 hover:text-white transition-colors z-50 p-2">

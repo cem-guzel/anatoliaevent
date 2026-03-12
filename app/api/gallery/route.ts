@@ -1,41 +1,42 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
-// 1. GET: Tüm fotoğrafları veritabanından getir (En yeniler en üstte)
+// 1. GET: Tüm içerikleri getir
 export async function GET() {
   try {
-    const images = await prisma.galleryImage.findMany({
+    const items = await prisma.galleryImage.findMany({
       orderBy: { createdAt: "desc" },
     });
-    return NextResponse.json(images);
- } catch (error) {
-    console.error("GET API HATASI:", error); // <-- BUNU EKLE
-    return NextResponse.json({ error: "Fotoğraflar getirilemedi." }, { status: 500 });
+    return NextResponse.json(items);
+  } catch (error) {
+    console.error("GET API HATASI:", error);
+    return NextResponse.json({ error: "İçerikler getirilemedi." }, { status: 500 });
   }
 }
 
-// 2. POST: Yeni yüklenen fotoğrafın linkini veritabanına kaydet
+// 2. POST: Yeni yüklenen içeriği (resim/video) kaydet
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { publicId, url, altText } = body;
+    const { publicId, url, altText, resourceType } = body;
 
-    const newImage = await prisma.galleryImage.create({
+    const newItem = await prisma.galleryImage.create({
       data: {
         publicId,
         url,
         altText: altText || "Anatolia Event Galeri",
+        resourceType: resourceType || "image", // YENİ: Cloudinary'den gelen tipi kaydet
       },
     });
 
-    return NextResponse.json(newImage);
- } catch (error) {
-    console.error("POST API HATASI:", error); // <-- BUNU EKLE
-    return NextResponse.json({ error: "Fotoğraf kaydedilemedi." }, { status: 500 });
+    return NextResponse.json(newItem);
+  } catch (error) {
+    console.error("POST API HATASI:", error);
+    return NextResponse.json({ error: "İçerik kaydedilemedi." }, { status: 500 });
   }
 }
 
-// 3. DELETE: Seçilen fotoğrafı veritabanından sil
+// 3. DELETE: Seçilen içeriği sil
 export async function DELETE(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
@@ -49,6 +50,6 @@ export async function DELETE(req: Request) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    return NextResponse.json({ error: "Fotoğraf silinemedi." }, { status: 500 });
+    return NextResponse.json({ error: "İçerik silinemedi." }, { status: 500 });
   }
 }

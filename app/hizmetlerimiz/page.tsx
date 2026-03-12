@@ -16,7 +16,7 @@ const servicesList = [
   {
     id: "02",
     title: "Kır Düğünü",
-    subtitle: "MASAL GİBİ BİR GECE",
+    subtitle: "MASAL GİBİ BİR GÜN",
     description: "Asırlık ağaçların gölgesinde, doğanın kalbinde bir masal... Geleneksel kır düğünü algısını lüks detaylar, size özel tasarlanmış menüler ve benzersiz bir atmosferle yeniden tanımlıyoruz.",
     features: ["Kişiselleştirilmiş Menü Tadımı", "Özel Karşılama Kokteyli", "Profesyonel Ses ve Işık", "Gelin & Damat Hazırlık Odası"],
   },
@@ -124,7 +124,7 @@ export default function ServicesPage() {
                                   href="/iletisim"
                                   className="inline-flex items-center justify-center bg-white text-black hover:bg-black hover:text-white transition-colors duration-300 rounded-none h-12 px-8 text-xs tracking-[0.2em] uppercase w-full md:w-auto font-medium"
                                 >
-                                    Detaylı Bilgi
+                                    İletişime Geç
                                 </Link>
                             </div>
                         </div>

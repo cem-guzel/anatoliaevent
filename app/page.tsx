@@ -21,7 +21,7 @@ export default function Home() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
             className="hidden md:block absolute inset-0 z-0 w-full h-full object-cover"
-            src="/2.mp4" /* Geniş ekranlar için yatay video adın */
+            src="/1.mp4" /* Geniş ekranlar için yatay video adın */
             autoPlay loop muted playsInline
           />
 

@@ -87,7 +87,7 @@ export default function ContactPage() {
               <a href="https://www.instagram.com/anatoliaeventkirdugunu/" target="_blank" rel="noopener noreferrer" className="group bg-stone-50 p-12 flex flex-col items-center justify-center text-center hover:bg-stone-900 transition-colors duration-500">
                 <Instagram strokeWidth={1} className="w-8 h-8 text-stone-400 group-hover:text-white transition-colors duration-500 mb-6" />
                 <span className="text-[10px] md:text-xs font-semibold tracking-[0.3em] text-stone-400 uppercase mb-3">Instagram</span>
-                <span className="text-xl md:text-2xl font-light tracking-widest text-stone-900 group-hover:text-white transition-colors duration-500">@anatoliaevent</span>
+                <span className="text-xl md:text-2xl font-light tracking-widest text-stone-900 group-hover:text-white transition-colors duration-500">@anatoliaeventkirdugunu</span>
               </a>
 
               {/* E-Posta */}

@@ -61,7 +61,7 @@ export default function ContactPage() {
               </p>
             </motion.div>
 
-            {/* 2. KISIM: İLETİŞİM KUTULARI - MOBİL EFEKT EKLENDİ */}
+            {/* 2. KISIM: İLETİŞİM KUTULARI (Geri dönüş hatası düzeltildi) */}
             <motion.div 
               initial={{ opacity: 0, y: 30 }} 
               whileInView={{ opacity: 1, y: 0 }} 
@@ -69,13 +69,13 @@ export default function ContactPage() {
               transition={{ duration: 1, delay: 0.2 }}
               className="grid grid-cols-1 md:grid-cols-2 gap-px bg-stone-200 border border-stone-200 shadow-sm overflow-hidden"
             >
-              {/* Ortak Tasarım Değişkeni: whileTap={{ scale: 0.98 }} mobilde tıklandığında hafif içe çökme hissi verir. */}
+              {/* Ortak Stil: whileTap={{ scale: 0.97 }} dokunma hissini verir, renk geçişi CSS ile sağlanır */}
               
               {/* Telefon */}
               <motion.a 
                 href="tel:+905333058997" 
-                whileTap={{ scale: 0.98, backgroundColor: "#1c1917" }} // Dokunulduğunda renk ve ölçek değişimi
-                className="group bg-stone-50 p-12 flex flex-col items-center justify-center text-center hover:bg-stone-900 transition-all duration-500 active:text-white"
+                whileTap={{ scale: 0.97 }}
+                className="group bg-stone-50 p-12 flex flex-col items-center justify-center text-center hover:bg-stone-900 active:bg-stone-900 transition-colors duration-500"
               >
                 <Phone strokeWidth={1} className="w-8 h-8 text-stone-400 group-hover:text-white group-active:text-white transition-colors duration-500 mb-6" />
                 <span className="text-[10px] md:text-xs font-semibold tracking-[0.3em] text-stone-400 uppercase mb-3">Telefon</span>
@@ -87,8 +87,8 @@ export default function ContactPage() {
                 href="https://wa.me/905333058997" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                whileTap={{ scale: 0.98, backgroundColor: "#1c1917" }}
-                className="group bg-stone-50 p-12 flex flex-col items-center justify-center text-center hover:bg-stone-900 transition-all duration-500 active:text-white"
+                whileTap={{ scale: 0.97 }}
+                className="group bg-stone-50 p-12 flex flex-col items-center justify-center text-center hover:bg-stone-900 active:bg-stone-900 transition-colors duration-500"
               >
                 <MessageCircle strokeWidth={1} className="w-8 h-8 text-stone-400 group-hover:text-white group-active:text-white transition-colors duration-500 mb-6" />
                 <span className="text-[10px] md:text-xs font-semibold tracking-[0.3em] text-stone-400 uppercase group-hover:text-white/70 transition-colors duration-500 mb-3">WhatsApp</span>
@@ -100,8 +100,8 @@ export default function ContactPage() {
                 href="https://www.instagram.com/anatoliaeventkirdugunu/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                whileTap={{ scale: 0.98, backgroundColor: "#1c1917" }}
-                className="group bg-stone-50 p-12 flex flex-col items-center justify-center text-center hover:bg-stone-900 transition-all duration-500 active:text-white"
+                whileTap={{ scale: 0.97 }}
+                className="group bg-stone-50 p-12 flex flex-col items-center justify-center text-center hover:bg-stone-900 active:bg-stone-900 transition-colors duration-500"
               >
                 <Instagram strokeWidth={1} className="w-8 h-8 text-stone-400 group-hover:text-white group-active:text-white transition-colors duration-500 mb-6" />
                 <span className="text-[10px] md:text-xs font-semibold tracking-[0.3em] text-stone-400 uppercase mb-3">Instagram</span>
@@ -111,8 +111,8 @@ export default function ContactPage() {
               {/* E-Posta */}
               <motion.a 
                 href="mailto:anatoliaevent@gmail.com" 
-                whileTap={{ scale: 0.98, backgroundColor: "#1c1917" }}
-                className="group bg-stone-50 p-12 flex flex-col items-center justify-center text-center hover:bg-stone-900 transition-all duration-500 active:text-white"
+                whileTap={{ scale: 0.97 }}
+                className="group bg-stone-50 p-12 flex flex-col items-center justify-center text-center hover:bg-stone-900 active:bg-stone-900 transition-colors duration-500"
               >
                 <Mail strokeWidth={1} className="w-8 h-8 text-stone-400 group-hover:text-white group-active:text-white transition-colors duration-500 mb-6" />
                 <span className="text-[10px] md:text-xs font-semibold tracking-[0.3em] text-stone-400 uppercase mb-3">E-Posta</span>
@@ -128,6 +128,7 @@ export default function ContactPage() {
               transition={{ duration: 1, delay: 0.4 }}
               className="flex flex-col md:flex-row gap-12 md:gap-16 items-center bg-white p-8 md:p-12 border border-stone-200 shadow-sm"
             >
+              {/* Adres Yazısı */}
               <div className="w-full md:w-1/3 flex flex-col items-center md:items-start text-center md:text-left">
                 <span className="text-xs font-semibold tracking-[0.3em] text-stone-900 uppercase mb-4">
                   Adres Bilgisi
@@ -135,28 +136,33 @@ export default function ContactPage() {
                 <p className="text-stone-600 font-light text-sm md:text-base tracking-wide leading-relaxed mb-6">
                   Mithatpaşa, Kumsu Sk. No:55<br/>34075 Eyüpsultan / İstanbul
                 </p>
+                {/* YENİ: Doğrudan İşletmeyi (Anatolia Event) Açan Link */}
                 <a 
-                  href="https://maps.app.goo.gl/9ZpX9Jp9Jp9Jp9Jp9" 
+                  href="https://www.google.com/maps/place/?q=place_id:ChIJ3yjhyLKzyhQRJdC0PT2ZDPM" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 text-xs font-semibold tracking-widest uppercase text-stone-900 group active:text-stone-500"
+                  className="inline-flex items-center gap-3 text-xs font-semibold tracking-widest uppercase text-stone-900 group"
                 >
                   <MapPin className="w-4 h-4 group-hover:text-stone-500 transition-colors" />
-                  <span className="border-b border-stone-900 group-hover:border-stone-500 transition-colors pb-1">
+                  <span className="border-b border-stone-900 group-hover:border-stone-500 group-hover:text-stone-500 transition-colors pb-1">
                     Yol Tarifi Al
                   </span>
                   <ExternalLink className="w-3 h-3 text-stone-400 transform group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
 
+              {/* Minimal Harita */}
               <div className="w-full md:w-2/3 h-64 md:h-80 relative group overflow-hidden border border-stone-200">
+                {/* YENİ: İşletme ismine odaklanmış ve çökmeyen Google Haritası İframe Kodu */}
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3005.123456789!2d28.9!3d41.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDA2JzAwLjAiTiAyOMKwNTQnMDAuMCJF!5e0!3m2!1str!2str!4v1234567890" 
+                  src="https://maps.google.com/maps?q=Anatolia+Event,+Mithatpa%C5%9Fa,+Kumsu+Sk.+no:55,+34075+Ey%C3%BCpsultan/%C4%B0stanbul&t=&z=14&ie=UTF8&iwloc=&output=embed" 
                   className="w-full h-full border-0 grayscale group-hover:grayscale-0 transition-all duration-1000" 
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Anatolia Event Konum"
                 ></iframe>
+                
+                {/* Üzerine gelince karartan çok ince bir tül */}
                 <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/10 transition-colors duration-500 pointer-events-none"></div>
               </div>
             </motion.div>

@@ -138,10 +138,10 @@ export default function Navbar() {
               transition: { delay: 0.3, duration: 0.5, ease: [0.22, 1, 0.36, 1] },
             }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 bg-stone-950 z-[120] flex flex-col justify-between px-6 py-8 md:hidden overflow-hidden"
+            className="fixed inset-0 bg-stone-950 z-[120] flex flex-col md:hidden"
           >
-            {/* Üst: Logo + Kapat */}
-            <div className="flex justify-between items-center relative z-10">
+            {/* Üst: Logo + Kapat (Burası sabit kalacak) */}
+            <div className="flex justify-between items-center relative z-10 px-6 pt-8 pb-4 shrink-0">
               <Link
                 href="/"
                 onClick={(e) => { closeMenu(); handleLogoClick(e); }}
@@ -163,88 +163,92 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* Orta: Büyük Linkler */}
-            <div className="flex flex-col gap-2 mt-12 relative z-10">
-              {[...navLinks, { name: "İletişim", href: "/iletisim" }].map((link, i) => (
-                <motion.div
-                  key={link.name}
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -30 }}
-                  transition={{ delay: i * 0.08 + 0.2, duration: 0.5, ease: "easeOut" }}
-                >
-                  <Link
-                    href={link.href}
-                    onClick={closeMenu}
-                    className={`flex items-center gap-4 py-4 border-b border-white/5 group transition-colors duration-300 ${
-                      isActive(link.href) ? "text-white" : "text-stone-400 hover:text-white"
-                    }`}
-                  >
-                    {/* Aktif göstergesi */}
-                    <span
-                      className={`w-1 h-1 rounded-full transition-all duration-300 ${
-                        isActive(link.href)
-                          ? "bg-white scale-100"
-                          : "bg-transparent group-hover:bg-white/50 scale-0 group-hover:scale-100"
-                      }`}
-                    />
-                    <span className="text-3xl sm:text-4xl font-extralight tracking-[0.08em] uppercase">
-                      {link.name}
-                    </span>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Filigran */}
-            <span className="absolute top-1/2 -translate-y-1/2 -right-10 text-[10rem] font-serif font-bold text-white/[0.02] tracking-tighter select-none pointer-events-none rotate-90 origin-center">
-              EVENT
-            </span>
-
-            {/* Alt: İletişim */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-              className="mt-auto pt-6 border-t border-white/10 relative z-10"
-            >
-              <span className="text-[9px] font-semibold tracking-[0.35em] text-stone-500 uppercase block mb-4">
-                Bize Ulaşın
+            {/* Orta ve Alt Alan: Kaydırılabilir (Scrollable) Kapsayıcı */}
+            <div className="flex-1 overflow-y-auto px-6 pb-8 flex flex-col relative">
+              
+              {/* Filigran */}
+              <span className="absolute top-1/2 -translate-y-1/2 -right-10 text-[10rem] font-serif font-bold text-white/[0.02] tracking-tighter select-none pointer-events-none rotate-90 origin-center z-0">
+                EVENT
               </span>
-              <div className="flex flex-col gap-2 mb-5">
-                <a
-                  href="tel:+905333058997"
-                  className="text-stone-300 font-light text-sm tracking-wide hover:text-white transition-colors"
-                >
-                  +90 533 305 89 97
-                </a>
-                <a
-                  href="mailto:anatoliaevent@gmail.com"
-                  className="text-stone-300 font-light text-sm tracking-wide hover:text-white transition-colors"
-                >
-                  anatoliaevent@gmail.com
-                </a>
+
+              {/* Orta: Büyük Linkler */}
+              <div className="flex flex-col gap-2 mt-4 relative z-10">
+                {[...navLinks, { name: "İletişim", href: "/iletisim" }].map((link, i) => (
+                  <motion.div
+                    key={link.name}
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -30 }}
+                    transition={{ delay: i * 0.08 + 0.2, duration: 0.5, ease: "easeOut" }}
+                  >
+                    <Link
+                      href={link.href}
+                      onClick={closeMenu}
+                      className={`flex items-center gap-4 py-4 border-b border-white/5 group transition-colors duration-300 ${
+                        isActive(link.href) ? "text-white" : "text-stone-400 hover:text-white"
+                      }`}
+                    >
+                      {/* Aktif göstergesi */}
+                      <span
+                        className={`w-1 h-1 rounded-full transition-all duration-300 ${
+                          isActive(link.href)
+                            ? "bg-white scale-100"
+                            : "bg-transparent group-hover:bg-white/50 scale-0 group-hover:scale-100"
+                        }`}
+                      />
+                      <span className="text-3xl sm:text-4xl font-extralight tracking-[0.08em] uppercase">
+                        {link.name}
+                      </span>
+                    </Link>
+                  </motion.div>
+                ))}
               </div>
-              <div className="flex gap-6">
-                <a
-                  href="https://www.instagram.com/anatoliaeventkirdugunu/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[10px] font-light tracking-[0.25em] uppercase text-stone-500 hover:text-white transition-colors"
-                >
-                  Instagram
-                </a>
-                <a
-                  href="https://wa.me/905333058997"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[10px] font-light tracking-[0.25em] uppercase text-stone-500 hover:text-white transition-colors"
-                >
-                  WhatsApp
-                </a>
-              </div>
-            </motion.div>
+
+              {/* Alt: İletişim (mt-auto ile içeriğin en altına itilir) */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ delay: 0.6, duration: 0.5 }}
+                className="mt-auto pt-8 border-t border-white/10 relative z-10"
+              >
+                <span className="text-[9px] font-semibold tracking-[0.35em] text-stone-500 uppercase block mb-4">
+                  Bize Ulaşın
+                </span>
+                <div className="flex flex-col gap-2 mb-5">
+                  <a
+                    href="tel:+905333058997"
+                    className="text-stone-300 font-light text-sm tracking-wide hover:text-white transition-colors"
+                  >
+                    +90 533 305 89 97
+                  </a>
+                  <a
+                    href="mailto:anatoliaevent@gmail.com"
+                    className="text-stone-300 font-light text-sm tracking-wide hover:text-white transition-colors"
+                  >
+                    anatoliaevent@gmail.com
+                  </a>
+                </div>
+                <div className="flex gap-6">
+                  <a
+                    href="https://www.instagram.com/anatoliaeventkirdugunu/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-light tracking-[0.25em] uppercase text-stone-500 hover:text-white transition-colors"
+                  >
+                    Instagram
+                  </a>
+                  <a
+                    href="https://wa.me/905333058997"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-light tracking-[0.25em] uppercase text-stone-500 hover:text-white transition-colors"
+                  >
+                    WhatsApp
+                  </a>
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

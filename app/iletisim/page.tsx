@@ -7,7 +7,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { MapPin, Phone, Mail, Instagram, MessageCircle, ExternalLink, Clock, CheckCircle } from "lucide-react";
 import Navbar from "../../components/Navbar";
 
-// ─── Paralaks Hero ────────────────────────────────────────────────────
 // ─── İletişim Kartı ───────────────────────────────────────────────────
 function ContactCard({
   href,
@@ -33,16 +32,18 @@ function ContactCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.7, delay, ease: "easeOut" }}
-      whileTap={{ scale: 0.97 }}
-      className="group bg-white border border-stone-100 p-10 flex flex-col items-center justify-center text-center hover:bg-stone-900 hover:border-stone-900 transition-all duration-500 cursor-pointer"
+      // Mobilde daha belirgin bir içe çökme (buton basılma) hissi
+      whileTap={{ scale: 0.92 }} 
+      // active: sınıfları mobilde dokunulduğu an siyah arka plana geçmesini sağlar
+      className="group bg-white border border-stone-100 p-10 flex flex-col items-center justify-center text-center hover:bg-stone-900 hover:border-stone-900 active:bg-stone-900 active:border-stone-900 transition-all duration-300 cursor-pointer"
     >
-      <div className="w-12 h-12 rounded-full border border-stone-200 group-hover:border-white/20 flex items-center justify-center mb-6 transition-colors duration-500">
-        <Icon strokeWidth={1.5} className="w-5 h-5 text-stone-400 group-hover:text-white transition-colors duration-500" />
+      <div className="w-12 h-12 rounded-full border border-stone-200 group-hover:border-white/20 group-active:border-white/20 flex items-center justify-center mb-6 transition-colors duration-300">
+        <Icon strokeWidth={1.5} className="w-5 h-5 text-stone-400 group-hover:text-white group-active:text-white transition-colors duration-300" />
       </div>
-      <span className="text-[9px] tracking-[0.35em] text-stone-400 group-hover:text-white/50 uppercase mb-3 transition-colors duration-500">
+      <span className="text-[9px] tracking-[0.35em] text-stone-400 group-hover:text-white/50 group-active:text-white/50 uppercase mb-3 transition-colors duration-300">
         {label}
       </span>
-      <span className="text-base md:text-lg font-light tracking-wide text-stone-800 group-hover:text-white transition-colors duration-500 leading-snug">
+      <span className="text-base md:text-lg font-light tracking-wide text-stone-800 group-hover:text-white group-active:text-white transition-colors duration-300 leading-snug">
         {value}
       </span>
     </motion.a>

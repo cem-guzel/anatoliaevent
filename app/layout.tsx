@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "../components/Footer";
+import FloatingElements from "../components/FloatingElements";
 import FloatingWhatsApp from "../components/FloatingWhatsApp"; // Yeni butonumuzu içeri aldık
 
 const geistSans = Geist({
@@ -31,6 +32,7 @@ export default function RootLayout({
       >
         {children}
         <Footer />
+        <FloatingElements />
         <FloatingWhatsApp /> {/* Tüm sayfalarda sağ altta süzülmesi için buraya ekledik */}
       </body>
     </html>

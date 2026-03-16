@@ -1,106 +1,161 @@
 "use client";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import MEDIA from "@/lib/media";
 
 const services = [
   {
     id: 1,
     title: "Davet & Organizasyon",
     desc: "Doğum günlerinden kurumsal yemeklere kadar sevdiklerinizle bir arada olacağınız şık buluşmalar.",
-    image: "1.jpeg",
+    image: MEDIA.servicesPreview.davet,
   },
   {
     id: 2,
     title: "Kır Düğünü",
     desc: "Yeşillikler içinde, en ince detayına kadar düşünülmüş, samimi ve masal gibi bir gece.",
-    image: "6.jpeg",
+    image: MEDIA.servicesPreview.kirDugun,
   },
   {
     id: 3,
     title: "İsteme & Söz",
     desc: "Ailenizle baş başa, sıcak, geleneksel ve tamamen size özel hazırlanan ilk adım.",
-    image: "3.jpeg",
+    image: MEDIA.servicesPreview.istemeSoz,
   },
   {
     id: 4,
     title: "Nişan",
     desc: "Evliliğe giden yolda, en yakınlarınızla doyasıya eğleneceğiniz zarif bir kutlama.",
-    image: "4.jpeg",
-  }
+    image: MEDIA.servicesPreview.nisan,
+  },
 ];
 
 export default function ServicesPreview() {
+  const [activeId, setActiveId] = useState(2);
+
   return (
-    <section className="py-24 bg-white text-stone-900">
-      <div className="container mx-auto px-6 md:px-12">
-        
-        <div className="text-center mb-16">
-          <span className="text-xs font-light tracking-[0.3em] text-stone-400 uppercase mb-4 block">Neler Yapıyoruz?</span>
-          <h2 className="text-3xl md:text-4xl font-light tracking-[0.05em] text-stone-800">
-            Birlikte Planlayalım
-          </h2>
-        </div>
+    <section className="pt-12 md:pt-16 pb-24 md:pb-32 bg-[#fcfbf9] text-stone-900">
+      <div className="container mx-auto px-4 md:px-8 lg:px-12">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
-            >
-              <Link href="/hizmetlerimiz" className="group relative block h-[450px] w-full overflow-hidden cursor-pointer rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-500">
-                
-                {/* Arka Plan Görseli */}
-                <img 
-                  src={service.image} 
-                  alt={service.title} 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                />
-                
-                {/* Karartma Efekti: Mobilde hep koyu, PC'de üzerine gelince koyulaşır */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90 md:opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                {/* Kart İçeriği (Yazılar ve Buton) */}
-                <div className="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end transform transition-transform duration-500 translate-y-0 md:translate-y-12 group-hover:translate-y-0">
-                  <h3 className="text-white text-xl font-light tracking-widest uppercase mb-3">{service.title}</h3>
-                  
-                  {/* Açıklama: Mobilde hep görünür (opacity-100), PC'de gizli (md:opacity-0) ve hover ile gelir */}
-                  <p className="text-stone-300 text-sm font-light leading-relaxed opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 mb-6 line-clamp-3">
-                    {service.desc}
-                  </p>
-                  
-                  {/* Buton: Mobilde hep görünür, PC'de hover ile gelir */}
-                  <span className="inline-block border border-white/50 text-white text-[10px] md:text-xs tracking-[0.2em] uppercase px-6 py-2 rounded-full w-max opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
-                    İncele
-                  </span>
-                </div>
-
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex justify-center"
-        >
-          <Link 
-            href="/hizmetlerimiz" 
-            className="group flex items-center gap-4 text-xs font-light tracking-[0.2em] text-stone-500 uppercase hover:text-stone-900 transition-colors duration-300"
+        {/* Üst Başlık */}
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="text-left"
           >
-            <span className="border-b border-transparent group-hover:border-stone-900 transition-colors duration-300 pb-1">
-              Tüm Detayları Görün
+            <span className="text-[10px] md:text-xs font-medium tracking-[0.3em] text-stone-400 uppercase mb-4 block">
+              Neler Yapıyoruz?
             </span>
-            <svg className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-stone-800 leading-tight">
+              Birlikte <br className="hidden md:block" />
+              <span className="italic text-stone-500">Planlayalım.</span>
+            </h2>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="hidden md:block"
+          >
+            <Link
+              href="/hizmetlerimiz"
+              className="group flex items-center gap-4 text-xs tracking-[0.2em] text-stone-800 uppercase hover:text-stone-500 transition-colors duration-300 pb-2 border-b border-stone-800 hover:border-stone-500"
+            >
+              <span>Tüm Detayları Görün</span>
+              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-300" strokeWidth={1.5} />
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* Akordeon Galeri */}
+        <div className="flex flex-col md:flex-row w-full h-[700px] md:h-[600px] lg:h-[700px] gap-2 md:gap-4">
+          {services.map((service) => {
+            const isActive = activeId === service.id;
+
+            return (
+              <motion.div
+                key={service.id}
+                onMouseEnter={() => setActiveId(service.id)}
+                onClick={() => setActiveId(service.id)}
+                animate={{ flex: isActive ? 4 : 1 }}
+                transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
+                style={{ WebkitTransform: "translateZ(0)", willChange: "flex" }}
+                className={`relative overflow-hidden rounded-2xl md:rounded-[40px] cursor-pointer group ${isActive ? "shadow-2xl" : "shadow-md"}`}
+              >
+                {/* Arka Plan Görseli */}
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+
+                <motion.div
+                  animate={{ opacity: isActive ? 0.55 : 0.4 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute inset-0 bg-stone-950"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+
+                {/* İçerik */}
+                <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
+                  <div className="flex items-center gap-4 mb-2">
+                    <div className={`w-8 h-[1px] bg-white transition-all duration-500 ${isActive ? "opacity-100" : "opacity-0 w-0"}`} />
+                    <h3
+                      className={`text-white uppercase transition-all duration-500 font-light tracking-widest ${
+                        isActive
+                          ? "text-2xl md:text-3xl"
+                          : "text-sm md:text-lg origin-left transform md:-rotate-90 md:translate-y-[-100px] md:translate-x-4 whitespace-nowrap"
+                      }`}
+                    >
+                      {service.title}
+                    </h3>
+                  </div>
+
+                  <AnimatePresence mode="wait">
+                    {isActive && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={{ duration: 0.3, delay: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        <p className="text-stone-300 font-light text-sm md:text-base leading-relaxed mb-6 mt-4 max-w-md">
+                          {service.desc}
+                        </p>
+                        <Link
+                          href="/hizmetlerimiz"
+                          className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-white/50 text-white hover:bg-white hover:text-stone-900 transition-colors duration-500"
+                        >
+                          <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
+                        </Link>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Mobil Alt Buton */}
+        <div className="mt-12 flex justify-center md:hidden">
+          <Link
+            href="/hizmetlerimiz"
+            className="group flex items-center gap-4 text-xs tracking-[0.2em] text-stone-800 uppercase hover:text-stone-500 transition-colors duration-300 pb-2 border-b border-stone-800 hover:border-stone-500"
+          >
+            <span>Tüm Detayları Görün</span>
+            <ArrowRight className="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-300" strokeWidth={1.5} />
           </Link>
-        </motion.div>
+        </div>
 
       </div>
     </section>

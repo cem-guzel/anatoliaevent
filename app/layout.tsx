@@ -18,6 +18,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Anatolia Event | Kusursuz Kır Düğünü",
   description: "Doğanın kalbinde, lüks ve zarafetin buluştuğu noktada kusursuz başlangıçlar.",
+  verification: {
+    google: "LBQrd9SrZw3GJlnD3kdUzJXypI27VnugTcyUcvqruW4",
+  },
 };
 
 export default function RootLayout({

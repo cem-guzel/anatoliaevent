@@ -48,10 +48,7 @@ const categories = [
         q: "Aynı gün birden fazla etkinlik oluyor mu?",
         a: "Hayır. Mekanımızda aynı anda yalnızca tek bir etkinlik gerçekleştirilir. Bu sayede tüm ekibimizin ilgisi ve enerjisi tamamen sizin için olur. O gün yalnızca sizsiniz.",
       },
-      {
-        q: "Kendi organizasyon firmasını ve fotoğrafçısını getirebilir miyim?",
-        a: "Evet, anlaşmalı olduğunuz organizasyon firması, fotoğrafçı ve kameraman ekibinizi getirebilirsiniz. İstek üzerine güvendiğimiz tedarikçi firmalarımızı da sizinle paylaşabiliriz.",
-      },
+      
       {
         q: "Gelin ve damat için hazırlık odası var mı?",
         a: "Evet. Özel olarak düzenlenmiş, aynalı ve aydınlık gelin hazırlık odamız ve damat odamız mevcuttur. Gelinliğinizi giymekten son rötuşa kadar tüm hazırlıklarınızı konforlu bir şekilde yapabilirsiniz.",
@@ -92,10 +89,7 @@ const categories = [
         q: "Dekorasyon seçenekleri nelerdir?",
         a: "Rustik kır estetiğinden modern minimalist tasarıma, çiçek ağırlıklı romantik konseptlerden bohem doğa temalarına kadar geniş bir dekorasyon portföyümüz bulunmaktadır. Tercihlerinize göre tamamen kişiselleştirilmiş bir konsept hazırlarız.",
       },
-      {
-        q: "Taze çiçek kullanıyor musunuz?",
-        a: "Evet. Masa süslemelerinden gelin masasına, giriş kapısından fotoğraf köşelerine kadar taze mevsim çiçekleri kullanıyoruz. Çiçek renkleri ve türleri tamamen size özel seçilir.",
-      },
+  
       {
         q: "Kendi dekor malzemelerimi veya temanı getirebilir miyim?",
         a: "Evet, kişisel dekor öğelerinizi ve temanıza ait materyalleri getirebilirsiniz. Ekibimiz, getirdiğiniz unsurları mekânın genel estetiğiyle uyumlu şekilde yerleştirmenize yardımcı olur.",

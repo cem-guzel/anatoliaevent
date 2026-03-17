@@ -105,7 +105,7 @@ export default function PageHero({
                   delay: 0.3 + i * 0.035,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className={`text-5xl md:text-7xl lg:text-8xl font-extralight tracking-[0.1em] text-white uppercase leading-none ${
+                className={`text-[clamp(1.5rem,7.5vw,3rem)] md:text-6xl lg:text-8xl font-extralight tracking-[0.1em] text-white uppercase leading-none ${
                   char === " " ? "mr-4" : ""
                 }`}
               >

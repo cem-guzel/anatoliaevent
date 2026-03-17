@@ -562,7 +562,7 @@ export default function MenuPage() {
             </h2>
             <div className="w-12 h-[1px] bg-stone-700 mx-auto mb-8" />
             <p className="text-stone-500 text-sm font-light leading-relaxed mb-12 max-w-md mx-auto">
-              Menü seçiminiz için detaylı bilgi almak ve size özel teklif için hemen iletişime geçin. İlk görüşme tamamen ücretsizdir.
+              Menü seçiminiz için detaylı bilgi almak ve size özel teklif için hemen iletişime geçin. Size özel seçenekleri bir kahve eşliğinde konuşmak için bekliyoruz.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

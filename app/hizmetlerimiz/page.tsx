@@ -291,7 +291,7 @@ export default function ServicesPage() {
           </h2>
           <div className="w-12 h-[1px] bg-stone-700 mb-10" />
           <p className="text-stone-500 text-sm font-light leading-relaxed mb-12 max-w-md">
-            İlk görüşme tamamen ücretsiz. Bizi arayın, mekanı görün, hayalinizi anlatın.
+          Sizi misafir etmekten mutluluk duyarız. Bizi arayın, mekanı görün, hayalinizi anlatın.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link

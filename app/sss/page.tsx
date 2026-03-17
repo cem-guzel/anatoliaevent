@@ -101,9 +101,8 @@ const categories = [
     label: "Genel & Rezervasyon",
     questions: [
       {
-        q: "İlk görüşme ücretli mi?",
-        a: "Hayır, kesinlikle değil. İlk görüşme ve mekan turu tamamen ücretsizdir. Sizi tanımak, hayallerinizi dinlemek ve size en uygun paketi sunmak için buradayız.",
-      },
+        q: "Mekanı ziyaret edip detaylı bilgi alabilir miyiz?",
+        a: "Elbette! Sizi mekanımızda ağırlamak ve hayallerinizi dinlemekten mutluluk duyarız. Size en uygun paketi sunabilmemiz için tanışma ve mekan turuna her zaman bekleriz.",      },
       {
         q: "Fiyatlara KDV dahil mi?",
         a: "Hayır, fiyatlarımıza KDV dahil değildir. Teklif aşamasında net tutarı ve KDV'li toplamı birlikte size sunuyoruz; sürpriz bir maliyet olmaz.",
@@ -369,7 +368,7 @@ export default function SSSPage() {
             </h2>
             <div className="w-12 h-[1px] bg-stone-700 mx-auto mb-8" />
             <p className="text-stone-500 text-sm font-light leading-relaxed mb-12 max-w-md mx-auto">
-              Mekanı görmek, ekibimizle tanışmak ve tüm sorularınızı yüz yüze sormak için randevu alın. İlk görüşme tamamen ücretsizdir.
+              Mekanı görmek, ekibimizle tanışmak ve tüm sorularınızı yüz yüze sormak için randevu alın. Sizi misafir etmek ve bu özel süreci birlikte planlamak için buradayız.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

@@ -233,7 +233,7 @@ export default function AboutPage() {
               ))}
             </div>
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.4 }} className="mt-px bg-stone-800 px-10 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-stone-400 text-sm font-light tracking-wide">İlk görüşme tamamen ücretsiz. Hemen başlayalım.</p>
+              <p className="text-stone-400 text-sm font-light tracking-wide">Hayalinizdeki günü planlamak için bir kahvemizi içmeye bekleriz. Hemen başlayalım.</p>
               <Link href="/iletisim" className="group flex items-center gap-3 text-[10px] tracking-[0.3em] uppercase text-white border border-white/20 hover:border-white px-8 py-3 transition-colors duration-500">
                 <span>Randevu Al</span>
                 <ChevronRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform duration-300" strokeWidth={2} />

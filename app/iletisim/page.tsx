@@ -52,7 +52,7 @@ function ContactCard({
 
 // ─── Güven Rozeti ─────────────────────────────────────────────────────
 const trustItems = [
-  { icon: CheckCircle, text: "İlk Görüşme Ücretsiz" },
+  { icon: CheckCircle, text: "Tanışma ve Mekan Turu" },
   { icon: CheckCircle, text: "Kişiye Özel Teklif" },
   { icon: CheckCircle, text: "4 Mevsim Açık" },
   { icon: CheckCircle, text: "200+ Mutlu Çift" },
@@ -100,7 +100,7 @@ export default function ContactPage() {
               </div>
               <div className="flex-1 md:pb-2">
                 <p className="text-stone-400 font-light text-sm leading-relaxed tracking-wide border-l border-stone-200 pl-6">
-                  Hayalinizdeki etkinliği planlamak, detayları konuşmak ve Anatolıa Event&apos;in benzersiz atmosferini yakından hissetmek için bize ulaşın. İlk görüşme tamamen ücretsizdir.
+                  Hayalinizdeki etkinliği planlamak, detayları konuşmak ve Anatolıa Event&apos;in benzersiz atmosferini yakından hissetmek için bize ulaşın. Sizi mekanımızda ağırlamaktan ve hikayenizi dinlemekten mutluluk duyarız.
                 </p>
               </div>
             </motion.div>
@@ -187,7 +187,7 @@ export default function ContactPage() {
                     </p>
                   </div>
                   <a
-                    href="https://www.google.com/maps/place/?q=place_id:ChIJ3yjhyLKzyhQRJdC0PT2ZDPM"
+                    href="https://maps.app.goo.gl/ARbPTrvs53ywHQUQ6"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group inline-flex items-center gap-2 mt-5 text-[9px] tracking-[0.3em] uppercase text-stone-500 hover:text-white transition-colors duration-300"

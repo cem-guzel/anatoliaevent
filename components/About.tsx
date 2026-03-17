@@ -48,7 +48,7 @@ export default function About() {
               className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-8 mb-12"
             >
               {[
-                { icon: Wine, label: "Davet & Org." },
+                { icon: Wine, label: "Davet & Organizasyon" },
                 { icon: Flower2, label: "Kır Düğünü" },
                 { icon: CalendarHeart, label: "İsteme & Söz" },
                 { icon: GlassWater, label: "Nişan" },
@@ -90,8 +90,8 @@ export default function About() {
               />
             </motion.div>
 
-            {/* Dönen mühür */}
-            <motion.div
+           {/* Dönen mühür */}
+           <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -105,10 +105,13 @@ export default function About() {
                 className="w-full h-full"
                 viewBox="0 0 100 100"
               >
-                <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="transparent" />
-                <text className="text-[10px] md:text-[9.5px] font-medium tracking-[0.25em] fill-stone-700 uppercase">
+                {/* Yarıçapı hafif daralttım (r=33) ki yazılar dönerken dış kenara değmesin */}
+                <path id="circlePath" d="M 50, 50 m -33, 0 a 33,33 0 1,1 66,0 a 33,33 0 1,1 -66,0" fill="transparent" />
+                
+                {/* Tailwind text boyutları yerine SVG fontSize ve letterSpacing kullandık */}
+                <text fontSize="10.5" letterSpacing="0.15em" className="font-medium fill-stone-700 uppercase">
                   <textPath href="#circlePath" startOffset="0%">
-                    Kır Düğünü  • Anatolıa Event
+                    Kır Düğünü • Anatolıa Event •
                   </textPath>
                 </text>
               </motion.svg>

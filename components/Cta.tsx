@@ -38,7 +38,7 @@ export default function Cta() {
             <div className="w-14 h-[1px] bg-stone-300 mb-8" />
 
             <p className="text-stone-500 font-light tracking-wide mb-10 max-w-lg leading-relaxed text-sm md:text-base">
-              Mekanı keşfetmek, detayları konuşmak ve size özel tekliflerimizi öğrenmek için hemen ulaşın. İlk görüşme ücretsizdir.
+              Mekanı keşfetmek, detayları konuşmak ve size özel tekliflerimizi öğrenmek için hemen ulaşın. Aklınızdaki tüm detayları netleştirmek için sizi Kemerburgaz&apos;a bekliyoruz.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">

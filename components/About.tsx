@@ -109,9 +109,9 @@ export default function About() {
                 <path id="circlePath" d="M 50, 50 m -33, 0 a 33,33 0 1,1 66,0 a 33,33 0 1,1 -66,0" fill="transparent" />
                 
                 {/* Tailwind text boyutları yerine SVG fontSize ve letterSpacing kullandık */}
-                <text fontSize="10.5" letterSpacing="0.15em" className="font-medium fill-stone-700 uppercase">
+                <text fontSize="9.5" letterSpacing="0.15em" className="font-medium fill-stone-700 uppercase">
                   <textPath href="#circlePath" startOffset="0%">
-                    Kır Düğünü • Anatolıa Event •
+                  • •   Kır Düğünü   • Anatolıa Event   
                   </textPath>
                 </text>
               </motion.svg>

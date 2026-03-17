@@ -311,7 +311,7 @@ export default function MenuPage() {
             { label: "Min. Kapasite", value: "250 Kişi" },
             { label: "Menü Sayısı", value: "6 Seçenek" },
           ]}
-          sideText="Anatolia Event — Menu"
+          sideText="Anatolıa Event — Menu"
           height="75vh"
         />
 

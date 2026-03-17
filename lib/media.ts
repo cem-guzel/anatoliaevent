@@ -1,6 +1,6 @@
 // lib/media.ts
 // ─────────────────────────────────────────────────────────────────────
-// Anatolia Event — Merkezi Görsel ve Video Yönetimi
+// Anatolıa Event — Merkezi Görsel ve Video Yönetimi
 // Kullanım: import MEDIA from "@/lib/media"
 // ─────────────────────────────────────────────────────────────────────
 
@@ -89,7 +89,7 @@ export const MEDIA = {
 
   // ── Hizmetlerimiz Sayfası ─────────────────────────────────────────
   hizmetler: {
-    hero:      "/yukaridancekilmisgece.JPG",
+    hero:      "/kina.jpg",
     davet:     "/koltukluluksdugun.jpg",
     kirDugun:  "/yukaridancekilmisgece.JPG",
     istemeSoz: "/kina.jpg",
@@ -98,7 +98,7 @@ export const MEDIA = {
 
   // ── Galeri Sayfası ────────────────────────────────────────────────
   galeri: {
-    hero: "/yukaridancekilmisgece.JPG",
+    hero: "/masaduzeni.JPG",
     staticGrid: [
       "/yukaridancekilmisgece.JPG",
       "/luksmasaduzen.JPG",

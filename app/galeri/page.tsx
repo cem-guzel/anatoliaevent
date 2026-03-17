@@ -61,7 +61,7 @@ function GridItem({
       ) : (
         <img
           src={item.url}
-          alt={item.altText || "Anatolia Event"}
+          alt={item.altText || "Anatolıa Event"}
           className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-[1.04] transition-transform duration-[2s] ease-out"
           loading="lazy"
         />
@@ -276,7 +276,7 @@ export default function GalleryPage() {
             { label: "İçerik", value: "Fotoğraf & Video" },
             { label: "Mekan", value: "Kemerburgaz" },
           ]}
-          sideText="Anatolia Event — Gallery"
+          sideText="Anatolıa Event — Gallery"
           height="75vh"
         />
 
@@ -308,7 +308,7 @@ export default function GalleryPage() {
               transition={{ duration: 1, delay: 0.2 }}
               className="text-stone-400 font-light text-sm leading-relaxed tracking-wide"
             >
-              Göz alıcı masa düzenleri, samimi anlar ve doğanın kalbinde gerçekleşen büyülü kutlamalar. Anatolia Event&apos;in kusursuz atmosferini yansıtan anlara göz atın.
+              Göz alıcı masa düzenleri, samimi anlar ve doğanın kalbinde gerçekleşen büyülü kutlamalar. Anatolıa Event&apos;in kusursuz atmosferini yansıtan anlara göz atın.
             </motion.p>
           </div>
         </div>

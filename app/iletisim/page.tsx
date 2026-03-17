@@ -74,7 +74,7 @@ export default function ContactPage() {
             { label: "Telefon", value: "0533 305 89 97" },
             { label: "Konum", value: "Kemerburgaz" },
           ]}
-          sideText="Anatolia Event — Contact"
+          sideText="Anatolıa Event — Contact"
           height="75vh"
         />
 
@@ -100,7 +100,7 @@ export default function ContactPage() {
               </div>
               <div className="flex-1 md:pb-2">
                 <p className="text-stone-400 font-light text-sm leading-relaxed tracking-wide border-l border-stone-200 pl-6">
-                  Hayalinizdeki etkinliği planlamak, detayları konuşmak ve Anatolia Event&apos;in benzersiz atmosferini yakından hissetmek için bize ulaşın. İlk görüşme tamamen ücretsizdir.
+                  Hayalinizdeki etkinliği planlamak, detayları konuşmak ve Anatolıa Event&apos;in benzersiz atmosferini yakından hissetmek için bize ulaşın. İlk görüşme tamamen ücretsizdir.
                 </p>
               </div>
             </motion.div>
@@ -254,7 +254,7 @@ export default function ContactPage() {
                   className="w-full h-full border-0 grayscale group-hover:grayscale-0 transition-all duration-1000"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Anatolia Event Konum"
+                  title="Anatolıa Event Konum"
                 />
                 <div className="absolute inset-0 pointer-events-none border border-stone-200" />
               </div>

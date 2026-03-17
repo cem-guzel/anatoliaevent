@@ -9,25 +9,25 @@ const reviews = [
     id: 1,
     name: "Soner AKKUŞ",
     date: "5 ay önce",
-    text: "Hayatımızın en özel gününü Anatolia Event’te gerçekleştirdik ve iyi ki de öyle yapmışız. Kır düğünü konsepti, doğallığı ve zarafetiyle hayal ettiğimizden bile daha güzeldi. Mekânın ambiyansı masalsı, organizasyon ise kusursuzdu. Özellikle işletmecisi Merve Hanım’a ayrı bir teşekkür borçluyuz. Detaylara gösterdiği özen, samimiyeti ve profesyonelliği sayesinde hiçbir şeye stres olmadan sadece anın tadını çıkardık."
+    text: "Hayatımızın en özel gününü Anatolıa Event’te gerçekleştirdik ve iyi ki de öyle yapmışız. Kır düğünü konsepti, doğallığı ve zarafetiyle hayal ettiğimizden bile daha güzeldi. Mekânın ambiyansı masalsı, organizasyon ise kusursuzdu. Özellikle işletmecisi Merve Hanım’a ayrı bir teşekkür borçluyuz. Detaylara gösterdiği özen, samimiyeti ve profesyonelliği sayesinde hiçbir şeye stres olmadan sadece anın tadını çıkardık."
   },
   {
     id: 2,
-    name: "Şule Sayır",
-    date: "8 ay önce",
-    text: "Başta Merve Hanım ve ailesi olmak üzere tüm ekibine sonsuz teşekkür ederim 🤍 Göktürk-Kemerburgaz çevresi içerisinde nişan, kına, düğün hepsinde tek tercihim Anatolia Event oldu. Her konuda çok ilgili böylesine stresli zamanlarınızda her şeyin iyi gitmesi adına gönül rahatlığıyla tercih edebilirsiniz ✨"
+    name: "Ulaş Kaya",
+    date: "11 ay önce",
+    text: "Çok ilgili, güler yüzlü ve çözüm odaklı bir ekip. Biz doğum günü partisi düzenledik. Açık fikirli olmaları ve memnuniyet odaklı olmaları, çok güzel bir gün geçirmemizi sağladı. Çok teşekkür ederiz."
   },
   {
     id: 3,
     name: "Irem Ozadak",
     date: "1 yıl önce",
-    text: "Düğünümüzü Anatolia Event'te yapmayı iyi ki tercih etmişiz dedik. Her detay istediğimiz gibi oldu, Merve Hanım, ailesi ve tüm ekibi çok içten çok yardımsever. Düşünen herkese gönülden tavsiyemizdir, herkes bayıldı. İyi ki varsınız ve iyi ki sizlerle tanıştık."
+    text: "Düğünümüzü Anatolıa Event'te yapmayı iyi ki tercih etmişiz dedik. Her detay istediğimiz gibi oldu, Merve Hanım, ailesi ve tüm ekibi çok içten çok yardımsever. Düşünen herkese gönülden tavsiyemizdir, herkes bayıldı. İyi ki varsınız ve iyi ki sizlerle tanıştık."
   },
   {
     id: 4,
     name: "Büşra Tufan",
     date: "3 yıl önce",
-    text: "Hayalimdeki o düğünü gerçekleştiren, her detayında ayrı emeği olan Merve Hanım'a minnet borçluyum! Sabırla, içtenlikle tüm isteklerimi dinleyip güzel bir önizleme çalışması yaptı ve işini bu kadar severek yapması beni daha çok heyecanlandırdı 😍 İyi ki Anatolia Event'de yaptım düğünümü."
+    text: "Hayalimdeki o düğünü gerçekleştiren, her detayında ayrı emeği olan Merve Hanım'a minnet borçluyum! Sabırla, içtenlikle tüm isteklerimi dinleyip güzel bir önizleme çalışması yaptı ve işini bu kadar severek yapması beni daha çok heyecanlandırdı 😍 İyi ki Anatolıa Event'de yaptım düğünümü."
   },
   {
     id: 5,
@@ -37,9 +37,9 @@ const reviews = [
   },
   {
     id: 6,
-    name: "Özlem Can",
-    date: "2 yıl önce",
-    text: "Kına gecemi burada yaptım. Her şey tam istediğim gibiydi hatta istediğimden daha da güzeldi. Merve hanım her konuda çok yardımcı oldu dünya tatlısı birisi gerçekten. Kına boyunca her zaman yanımda olup her türlü süreci mükemmel bir şekilde yönetti."
+    name: "Ezgi Saltuk",
+    date: "1 yıl önce",
+    text: "Harika bir işletme hayallerinizin üstünde bir organizasyon gerçekleştiriyolar gönül rahatlığıyla gidebilirsiniz. Hizmetleri ilgi ve alakaları samimiyetleri size kendinizi özel hissettiriyor. Emekleriniz için teşekkürler 🌸🌸"
   }
 ];
 

@@ -22,7 +22,7 @@ export default function About() {
               transition={{ duration: 1, ease: "easeOut" }}
             >
               <span className="text-[10px] md:text-xs font-medium tracking-[0.2em] text-stone-500 uppercase mb-8 block border-b border-stone-200 pb-4 inline-block pr-12">
-                Anatolia Event Düğün & Etkinlik & Organizasyon
+                Anatolıa Event Düğün & Etkinlik & Organizasyon
               </span>
 
               <h2 className="text-4xl md:text-5xl lg:text-[64px] font-extralight tracking-tight text-stone-800 leading-[1.05] mb-12">
@@ -85,7 +85,7 @@ export default function About() {
             >
               <img
                 src={MEDIA.about.mainImage}
-                alt="Anatolia Event Ana Görsel"
+                alt="Anatolıa Event Ana Görsel"
                 className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-[4s] ease-out"
               />
             </motion.div>
@@ -108,7 +108,7 @@ export default function About() {
                 <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="transparent" />
                 <text className="text-[10px] md:text-[9.5px] font-medium tracking-[0.25em] fill-stone-700 uppercase">
                   <textPath href="#circlePath" startOffset="0%">
-                    Kır Düğünü  • Anatolia Event
+                    Kır Düğünü  • Anatolıa Event
                   </textPath>
                 </text>
               </motion.svg>

@@ -57,7 +57,7 @@ export default function AboutPage() {
             { label: "Kuruluş", value: "2021" },
             { label: "Kapasite", value: "1.300 Kişi" },
           ]}
-          sideText="Anatolia Event — Since 2021"
+          sideText="Anatolıa Event — Since 2021"
         />
 
         {/* Manifesto */}
@@ -79,7 +79,7 @@ export default function AboutPage() {
             <div className="flex flex-col lg:flex-row gap-16 lg:gap-28 items-center">
               <div className="w-full lg:w-[48%] relative h-[420px] md:h-[600px] flex-shrink-0">
                 <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.2 }} className="absolute top-0 left-0 w-[72%] h-[75%] overflow-hidden shadow-2xl rounded-tr-[80px]">
-                  <img src={MEDIA.hakkimizda.story1} alt="Anatolia Event Bahçe" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-[4s]" />
+                  <img src={MEDIA.hakkimizda.story1} alt="Anatolıa Event Bahçe" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-[4s]" />
                 </motion.div>
                 <motion.div initial={{ opacity: 0, y: -40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.2, delay: 0.25 }} className="absolute bottom-0 right-0 w-[55%] h-[50%] overflow-hidden shadow-2xl border-4 border-white rounded-bl-[60px]">
                   <img src={MEDIA.hakkimizda.story2} alt="Düğün Detay" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-[4s]" />
@@ -177,10 +177,10 @@ export default function AboutPage() {
             <div className="flex flex-col lg:flex-row-reverse gap-16 lg:gap-28 items-center">
               <div className="w-full lg:w-[42%] relative h-[420px] md:h-[580px] flex-shrink-0">
                 <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1.2 }} className="w-full h-full overflow-hidden rounded-bl-[100px] shadow-2xl">
-                  <img src={MEDIA.hakkimizda.team} alt="Anatolia Event Ekibi" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-[4s]" />
+                  <img src={MEDIA.hakkimizda.team} alt="Anatolıa Event Ekibi" className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-[4s]" />
                   <div className="absolute bottom-8 left-0 right-0 flex justify-center">
                     <div className="bg-white/95 backdrop-blur-sm px-7 py-4 shadow-xl flex flex-col items-center">
-                      <span className="text-stone-800 text-sm font-light tracking-[0.2em] uppercase">Anatolia Event</span>
+                      <span className="text-stone-800 text-sm font-light tracking-[0.2em] uppercase">Anatolıa Event</span>
                       <span className="text-[9px] tracking-[0.3em] text-stone-400 uppercase mt-1">Kurucu & Organizasyon Ekibi</span>
                     </div>
                   </div>
@@ -199,7 +199,7 @@ export default function AboutPage() {
                 {/* Gerçek müşteri yorumundan alıntı — isim burada kalıyor */}
                 <div className="bg-stone-50 border-l-2 border-stone-300 px-6 py-5 mb-8">
                   <p className="text-stone-600 text-sm font-light italic leading-relaxed mb-3">
-                    &ldquo;Merve Hanım&apos;ın sabırla, içtenlikle tüm isteklerimizi dinleyip güzel bir önizleme çalışması yaptığını görünce heyecanım ikiye katlandı.&rdquo;
+                    &ldquo;Tüm ekibin sabırla, içtenlikle tüm isteklerimizi dinleyip güzel bir önizleme çalışması yaptığını görünce heyecanım ikiye katlandı.&rdquo;
                   </p>
                   <span className="text-[9px] tracking-[0.3em] text-stone-400 uppercase">— Büşra Tufan, Gelin</span>
                 </div>
@@ -258,7 +258,7 @@ export default function AboutPage() {
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1.2 }} className="flex gap-4 overflow-x-auto px-6 md:px-12 pb-4" style={{ scrollbarWidth: "none" }}>
             {MEDIA.hakkimizda.galeriSerit.map((src, i) => (
               <div key={i} className="flex-shrink-0 w-64 md:w-80 h-56 md:h-72 overflow-hidden group relative">
-                <img src={src} alt={`Anatolia Event ${i + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[3s] ease-out" />
+                <img src={src} alt={`Anatolıa Event ${i + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[3s] ease-out" />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-500" />
               </div>
             ))}

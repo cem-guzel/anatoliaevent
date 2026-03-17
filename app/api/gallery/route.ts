@@ -24,7 +24,7 @@ export async function POST(req: Request) {
       data: {
         publicId,
         url,
-        altText: altText || "Anatolia Event Galeri",
+        altText: altText || "Anatolıa Event Galeri",
         resourceType: resourceType || "image", // YENİ: Cloudinary'den gelen tipi kaydet
       },
     });

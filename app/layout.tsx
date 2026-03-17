@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Anatolia Event | Kusursuz Kır Düğünü",
+  title: "Anatolıa Event | Kusursuz Kır Düğünü",
   description: "Doğanın kalbinde, lüks ve zarafetin buluştuğu noktada kusursuz başlangıçlar.",
 };
 

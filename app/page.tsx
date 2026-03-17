@@ -30,7 +30,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            poster={MEDIA.home.heroFallback}
+            poster={MEDIA.home.heroVideo}
           />
 
           {/* Overlay */}
@@ -54,7 +54,7 @@ export default function Home() {
               transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
               className="text-4xl md:text-6xl lg:text-7xl font-extralight tracking-[0.15em] text-white uppercase mb-6"
             >
-              Anatolia Event
+              Anatolıa Event
             </motion.h1>
 
             <motion.div

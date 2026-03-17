@@ -10,7 +10,7 @@ export default function Footer() {
           {/* 1. Sütun: Marka */}
           <div className="flex flex-col">
             <h4 className="text-2xl font-extralight tracking-[0.2em] text-stone-900 uppercase mb-6">
-              Anatolia Event
+              Anatolıa Event
             </h4>
             <p className="text-sm font-light tracking-wide leading-relaxed max-w-xs">
               Doğanın kalbinde, lüks ve zarafetin buluştuğu noktada kusursuz başlangıçlar.
@@ -56,7 +56,7 @@ export default function Footer() {
 
         {/* Alt Çizgi ve Telif Hakkı (BURASI GÜNCELLENDİ) */}
         <div className="pt-8 border-t border-stone-200 flex flex-col md:flex-row items-center justify-between text-xs font-light tracking-widest uppercase">
-          <p>© {new Date().getFullYear()} Anatolia Event. Tüm Hakları Saklıdır.</p>
+          <p>© {new Date().getFullYear()} Anatolıa Event. Tüm Hakları Saklıdır.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <a href="https://www.instagram.com/anatoliaeventkirdugunu/" target="_blank" rel="noopener noreferrer" className="hover:text-stone-900 transition-colors duration-300 cursor-pointer">
               Instagram

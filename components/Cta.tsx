@@ -75,7 +75,7 @@ export default function Cta() {
                 className="block w-full h-56 bg-stone-100 relative overflow-hidden group cursor-pointer"
               >
                 <iframe
-                  title="Anatolia Event Konum"
+                  title="Anatolıa Event Konum"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3005.9!2d28.9147!3d41.1674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDEwJzAyLjYiTiAyOMKwNTQnNTIuOSJF!5e0!3m2!1str!2str!4v1000000000000"
                   /* pointer-events-none eklendi ki tıklamaları iframe yutmasın, a etiketi çalışsın */
                   className="w-full h-full border-0 grayscale pointer-events-none transition-transform duration-700 group-hover:scale-105"
@@ -86,7 +86,7 @@ export default function Cta() {
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   <div className="bg-stone-900 text-white px-4 py-2 text-xs tracking-widest uppercase flex items-center gap-2 shadow-lg transition-transform duration-500 group-hover:-translate-y-1">
                     <MapPin className="w-3.5 h-3.5" strokeWidth={1.5} />
-                    Anatolia Event
+                    Anatolıa Event
                   </div>
                 </div>
               </a>

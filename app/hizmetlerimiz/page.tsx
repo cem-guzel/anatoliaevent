@@ -172,7 +172,7 @@ export default function ServicesPage() {
           { label: "Alan", value: "Kemerburgaz" },
           { label: "Kapasite", value: "1.300 Kişi" },
         ]}
-        sideText="Anatolia Event — Services"
+        sideText="Anatolıa Event — Services"
         height="75vh"
       />
 

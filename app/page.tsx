@@ -30,7 +30,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            poster={MEDIA.home.heroVideo}
+            poster={MEDIA.home.heroPoster}
           />
 
           {/* Overlay */}

@@ -54,7 +54,8 @@ export const MEDIA = {
   // Hero için video kullanalım — 2.mp4 gece düğün çekimi
   home: {
     heroVideo:   "/10.mp4",   // Masaüstü + Mobil — gece düğün videosu
-    heroFallback: "/yukaridancekilmisgece.JPG", // Video yüklenemezse gösterilir
+    heroPoster:  "/anasayfavideo.png",
+    heroFallback: "/anasayfavideo.png", // Video yüklenemezse gösterilir
   },
 
   // ── About Bileşeni ────────────────────────────────────────────────

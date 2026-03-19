@@ -21,7 +21,7 @@ const reviews = [
     id: 3,
     name: "Irem Ozadak",
     date: "1 yıl önce",
-    text: "Düğünümüzü Anatolıa Event'te yapmayı iyi ki tercih etmişiz dedik. Her detay istediğimiz gibi oldu, Merve Hanım, ailesi ve tüm ekibi çok içten çok yardımsever. Düşünen herkese gönülden tavsiyemizdir, herkes bayıldı. İyi ki varsınız ve iyi ki sizlerle tanıştık."
+    text: "Düğünümüzü Anatolıa Event'te yapmayı iyi ki tercih etmişiz dedik. Her detay istediğimiz gibi oldu, Anatolia ekibi ve ailesi ve tüm ekibi çok içten çok yardımsever. Düşünen herkese gönülden tavsiyemizdir, herkes bayıldı. İyi ki varsınız ve iyi ki sizlerle tanıştık."
   },
   {
     id: 4,

@@ -11,7 +11,7 @@ const features = [
   {
     icon: Heart,
     title: "Kişiye Özel Planlama",
-    desc: "Her çift farklıdır. Merve Hanım ve ekibi, sadece sizin için tasarlanmış bir deneyim sunar.",
+    desc: "Her çift farklıdır.  Anatolia ekibi sadece sizin için tasarlanmış bir deneyim sunar.",
   },
   {
     icon: Clock,
@@ -49,7 +49,7 @@ export default function WhyUs() {
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight leading-tight">
               Neden <br />
-              <span className="italic text-stone-400">Anatolia Event?</span>
+              <span className="italic text-stone-400">Anatolıa Event?</span>
             </h2>
           </motion.div>
 

@@ -21,13 +21,13 @@ const reviews = [
     id: 3,
     name: "Irem Ozadak",
     date: "1 yıl önce",
-    text: "Düğünümüzü Anatolıa Event'te yapmayı iyi ki tercih etmişiz dedik. Her detay istediğimiz gibi oldu, Anatolia ekibi ve ailesi ve tüm ekibi çok içten çok yardımsever. Düşünen herkese gönülden tavsiyemizdir, herkes bayıldı. İyi ki varsınız ve iyi ki sizlerle tanıştık."
+    text: "Düğünümüzü Anatolıa Event'te yapmayı iyi ki tercih etmişiz dedik. Her detay istediğimiz gibi oldu, Anatolia ailesi ve tüm ekibi çok içten çok yardımsever. Düşünen herkese gönülden tavsiyemizdir, herkes bayıldı. İyi ki varsınız ve iyi ki sizlerle tanıştık."
   },
   {
     id: 4,
     name: "Büşra Tufan",
     date: "3 yıl önce",
-    text: "Hayalimdeki o düğünü gerçekleştiren, her detayında ayrı emeği olan Merve Hanım'a minnet borçluyum! Sabırla, içtenlikle tüm isteklerimi dinleyip güzel bir önizleme çalışması yaptı ve işini bu kadar severek yapması beni daha çok heyecanlandırdı 😍 İyi ki Anatolıa Event'de yaptım düğünümü."
+    text: "Hayalimdeki o düğünü gerçekleştiren, her detayında ayrı emeği olan Anatolia Event ekibine minnet borçluyum! Sabırla, içtenlikle tüm isteklerimi dinleyip güzel bir önizleme çalışması yaptı ve işini bu kadar severek yapması beni daha çok heyecanlandırdı 😍 İyi ki Anatolıa Event'de yaptım düğünümü."
   },
   {
     id: 5,

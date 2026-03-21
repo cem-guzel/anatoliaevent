@@ -17,11 +17,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Kır Düğünü Kemerburgaz İstanbul | Anatolia Event – Lüks Düğün Mekanı",
+    default: "Kır Düğünü Kemerburgaz İstanbul | Anatolia Event – Kır Düğünü Mekanı",
     template: "%s | Anatolia Event",
   },
   description:
-    "Kemerburgaz İstanbul'da doğayla iç içe lüks kır düğünü mekanı. 1300 kişilik kapasite, muhteşem bahçe ve profesyonel organizasyon. Hayalinizdeki düğün Anatolia Event'te.",
+    "Kemerburgaz İstanbul'da doğayla iç içe kır düğünü mekanı. 1300 kişilik kapasite, muhteşem bahçe ve profesyonel organizasyon. Hayalinizdeki düğün Anatolia Event'te.",
   keywords: [
     "kır düğünü kemerburgaz",
     "düğün salonu kemerburgaz",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kır Düğünü Kemerburgaz İstanbul | Anatolia Event",
     description:
-      "Kemerburgaz'da doğayla iç içe lüks kır düğünü mekanı. 1300 kişilik kapasite ile hayalinizdeki düğün.",
+      "Kemerburgaz'da doğayla iç içe kır düğünü mekanı. 1300 kişilik kapasite ile hayalinizdeki düğün.",
     url: "https://kırdüğünü.com.tr",
     siteName: "Anatolia Event",
     locale: "tr_TR",

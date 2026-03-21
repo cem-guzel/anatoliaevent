@@ -16,6 +16,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  // BÜTÜN SAYFALAR İÇİN TEMEL URL (Doğru Punycode ile)
+  metadataBase: new URL("https://xn--krdn-2raab1zsf.com.tr"),
+  
+  // ANASAYFA İÇİN CANONICAL (STANDART) URL
+  alternates: {
+    canonical: "/",
+  },
+  
   title: {
     default: "Kır Düğünü Kemerburgaz İstanbul | Anatolia Event – Kır Düğünü Mekanı",
     template: "%s | Anatolia Event",
@@ -35,7 +43,7 @@ export const metadata: Metadata = {
     title: "Kır Düğünü Kemerburgaz İstanbul | Anatolia Event",
     description:
       "Kemerburgaz'da doğayla iç içe kır düğünü mekanı. 1300 kişilik kapasite ile hayalinizdeki düğün.",
-    url: "https://kırdüğünü.com.tr",
+    url: "https://xn--krdn-2raab1zsf.com.tr",
     siteName: "Anatolia Event",
     locale: "tr_TR",
     type: "website",
@@ -57,8 +65,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "EventVenue",
   "name": "Anatolia Event",
-  "description": "Kemerburgaz İstanbul'da doğayla iç içe lüks kır düğünü ve organizasyon mekanı. 1300 kişilik kapasite.",
-  "url": "https://kırdüğünü.com.tr",
+  "description": "Kemerburgaz İstanbul'da doğayla iç içe kır düğünü ve organizasyon mekanı. 1300 kişilik kapasite.",
+  "url": "https://xn--krdn-2raab1zsf.com.tr",
   "telephone": "+905333058997",
   "address": {
     "@type": "PostalAddress",

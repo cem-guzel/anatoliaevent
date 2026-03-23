@@ -5,14 +5,15 @@ import Footer from "../components/Footer";
 import FloatingElements from "../components/FloatingElements";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 
+// DEĞİŞİKLİK: Türkçe karakterlerin düzgün görünmesi için "latin-ext" eklendi
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
 });
 
 export const metadata: Metadata = {
@@ -61,41 +62,50 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "EventVenue",
-  "name": "Anatolia Event",
-  "description": "Kemerburgaz İstanbul'da doğayla iç içe kır düğünü ve organizasyon mekanı. 1300 kişilik kapasite.",
-  "url": "https://xn--krdn-2raab1zsf.com.tr",
-  "telephone": "+905333058997",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Mithatpaşa, Kumsu Sk. no:55",
-    "addressLocality": "Kemerburgaz",
-    "addressRegion": "İstanbul",
-    "postalCode": "34075",
-    "addressCountry": "TR"
+// DEĞİŞİKLİK BURADA: jsonLd artık bir dizi [ ... ] oldu ve içine WebSite eklendi.
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "EventVenue",
+    "name": "Anatolia Event",
+    "description": "Kemerburgaz İstanbul'da doğayla iç içe kır düğünü ve organizasyon mekanı. 1300 kişilik kapasite.",
+    "url": "https://xn--krdn-2raab1zsf.com.tr",
+    "telephone": "+905333058997",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Mithatpaşa, Kumsu Sk. no:55",
+      "addressLocality": "Kemerburgaz",
+      "addressRegion": "İstanbul",
+      "postalCode": "34075",
+      "addressCountry": "TR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 41.1794,
+      "longitude": 28.8744
+    },
+    "maximumAttendeeCapacity": 1300,
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "09:00",
+        "closes": "19:00"
+      }
+    ],
+    "areaServed": [
+      { "@type": "City", "name": "Kemerburgaz" },
+      { "@type": "City", "name": "İstanbul" }
+    ],
+    "priceRange": "₺₺₺"
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 41.1794,
-    "longitude": 28.8744
-  },
-  "maximumAttendeeCapacity": 1300,
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      "opens": "09:00",
-      "closes": "19:00"
-    }
-  ],
-  "areaServed": [
-    { "@type": "City", "name": "Kemerburgaz" },
-    { "@type": "City", "name": "İstanbul" }
-  ],
-  "priceRange": "₺₺₺"
-};
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Anatolia Event",
+    "url": "https://xn--krdn-2raab1zsf.com.tr"
+  }
+];
 
 export default function RootLayout({
   children,

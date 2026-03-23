@@ -6,6 +6,6 @@ export const metadata: Metadata = {
     canonical: "/menuler", 
   },
 };
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function MenulerLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

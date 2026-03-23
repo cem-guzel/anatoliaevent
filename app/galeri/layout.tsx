@@ -6,6 +6,6 @@ export const metadata: Metadata = {
     canonical: "/galeri", 
   },
 };
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function GaleriLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

@@ -2,7 +2,10 @@
 export const metadata: Metadata = {
   title: "Hakkimizda - Anatolia Event Kemerburgaz",
   description: "Kemerburgaz Istanbul kir dugunu mekani.",
+  alternates: {
+    canonical: "/hakkimizda", 
+  },
 };
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function HakkındaLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

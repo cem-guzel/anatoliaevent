@@ -5,6 +5,8 @@ import Footer from "../components/Footer";
 import FloatingElements from "../components/FloatingElements";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 
+import { Analytics } from '@vercel/analytics/next';
+
 // DEĞİŞİKLİK: Türkçe karakterlerin düzgün görünmesi için "latin-ext" eklendi
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -125,6 +127,8 @@ export default function RootLayout({
         <Footer />
         <FloatingElements />
         <FloatingWhatsApp />
+              <Analytics />
+
       </body>
     </html>
   );

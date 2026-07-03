@@ -60,18 +60,21 @@ GÖREVLERİN (BUNLARA KESİNLİKLE UYACAKSIN):
               question: z.string().describe('Kullanıcının sorduğu soru veya konu'),
             }),
             execute: async ({ question }) => {
-              try {
-                const results = await searchKnowledge(question, 3);
+  try {
+    console.log('🔍 searchFAQ çağrıldı, soru:', question);
+    const results = await searchKnowledge(question, 3);
+    console.log('📊 Bulunan sonuçlar:', JSON.stringify(results, null, 2));
 
-                if (results.length === 0) {
-                  return 'Bu konuda sistemde bilgi bulunamadı.';
-                }
+    if (results.length === 0) {
+      return 'Bu konuda sistemde bilgi bulunamadı.';
+    }
 
-                return results.map(r => r.content).join(' ');
-              } catch {
-                return 'Bilgi tabanı sorgusu sırasında bir hata oluştu.';
-              }
-            },
+    return results.map(r => r.content).join(' ');
+  } catch (err) {
+    console.error('❌ searchFAQ hatası:', err);
+    return 'Bilgi tabanı sorgusu sırasında bir hata oluştu.';
+  }
+},
           }),
         },
       });

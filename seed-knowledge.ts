@@ -25,7 +25,7 @@ const knowledgeChunks = [
   // KAPASİTE & MEKAN
   {
     category: 'kapasite',
-    content: 'Anatolia Event 50 kişilik samimi bir aile buluşmasından 500 kişinin üzerindeki büyük kır düğünlerine kadar esnek kapasite sunar. Misafir sayısına göre en uygun düzen birlikte belirlenir.'
+    content: 'Anatolia Event 50 kişilik samimi bir aile buluşmasından 1000 kişinin üzerindeki büyük kır düğünlerine kadar esnek kapasite sunar. Misafir sayısına göre en uygun düzen birlikte belirlenir.'
   },
   {
     category: 'acik_kapali_alan',

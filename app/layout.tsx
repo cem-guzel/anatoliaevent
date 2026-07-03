@@ -3,7 +3,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "../components/Footer";
 import FloatingElements from "../components/FloatingElements";
-import FloatingWhatsApp from "../components/FloatingWhatsApp";
+//import FloatingWhatsApp from "../components/FloatingWhatsApp";
+//import FloatingChatbot from "@/components/FloatingChatbot";
+import FloatingActions from "@/components/FloatingActions";
+
 
 import { Analytics } from '@vercel/analytics/next';
 
@@ -126,7 +129,8 @@ export default function RootLayout({
         {children}
         <Footer />
         <FloatingElements />
-        <FloatingWhatsApp />
+       
+        <FloatingActions />
               <Analytics />
 
       </body>

@@ -23,7 +23,9 @@ async function getEmbedder() {
 export async function generateEmbedding(text: string): Promise<number[]> {
   const model = await getEmbedder();
   const output = await model(text, { pooling: 'mean', normalize: true });
-  return Array.from(output.data);
+  const vec = Array.from(output.data) as number[];
+  console.log('🧮 Embedding üretildi, uzunluk:', vec.length, 'ilk 5 değer:', vec.slice(0, 5));
+  return vec;
 }
 
 export async function searchKnowledge(query: string, topK: number = 3) {

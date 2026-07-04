@@ -47,13 +47,18 @@ GÖREVLERİN (BUNLARA KESİNLİKLE UYACAKSIN):
 
   for (let i = 0; i < models.length; i++) {
     try {
+      const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 25000); // 25 saniye
+
       const result = streamText({
         model: models[i],
         system: SYSTEM_PROMPT,
         messages: converted,
         stopWhen: stepCountIs(5),
         maxOutputTokens: 4096,
+        abortSignal: controller.signal,
          onStepFinish: ({ text, toolCalls, toolResults, finishReason }) => {
+          clearTimeout(timeoutId);
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     console.log('🔹 ADIM TAMAMLANDI');
     console.log('Bitiş sebebi:', finishReason);
@@ -97,23 +102,24 @@ GÖREVLERİN (BUNLARA KESİNLİKLE UYACAKSIN):
         },
       });
 
-      return result.toUIMessageStreamResponse();
+       return result.toUIMessageStreamResponse();
 
-    } catch (err: unknown) {
-      const isRateLimit = err instanceof Error && (
-        err.message.includes('429') ||
-        err.message.includes('rate') ||
-        err.message.includes('limit')
-      );
+  } catch (err: unknown) {
+    const isRateLimit = err instanceof Error && (
+      err.message.includes('429') ||
+      err.message.includes('rate') ||
+      err.message.includes('limit')
+    );
+    const isTimeout = err instanceof Error && err.name === 'AbortError';
 
-      if (isRateLimit && i < models.length - 1) {
-        console.warn(`Model ${i} rate limit yedi, sonraki deneniyor...`);
-        continue;
-      }
-
-      throw err;
+    if ((isRateLimit || isTimeout) && i < models.length - 1) {
+      console.warn(`Model ${i} ${isTimeout ? 'zaman aşımına uğradı' : 'rate limit yedi'}, sonraki deneniyor...`);
+      continue;
     }
+
+    throw err;
   }
+}
 
   throw new Error('Tüm modeller başarısız.');
 }

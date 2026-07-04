@@ -3,8 +3,7 @@ import { streamText, tool, convertToModelMessages, stepCountIs } from 'ai';
 import { z } from 'zod';
 import { searchKnowledge } from '@/lib/embeddings';
 
-export const maxDuration = 60;
-
+export const maxDuration = 120;
 export async function POST(req: Request) {
   const { messages } = await req.json();
   const converted = await convertToModelMessages(messages);
@@ -53,7 +52,7 @@ GÖREVLERİN (BUNLARA KESİNLİKLE UYACAKSIN):
         system: SYSTEM_PROMPT,
         messages: converted,
         stopWhen: stepCountIs(5),
-        maxOutputTokens: 2048,
+        maxOutputTokens: 1024,
          onStepFinish: ({ text, toolCalls, toolResults, finishReason }) => {
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     console.log('🔹 ADIM TAMAMLANDI');

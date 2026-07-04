@@ -52,7 +52,7 @@ GÖREVLERİN (BUNLARA KESİNLİKLE UYACAKSIN):
         system: SYSTEM_PROMPT,
         messages: converted,
         stopWhen: stepCountIs(5),
-        maxOutputTokens: 1024,
+        maxOutputTokens: 4096,
          onStepFinish: ({ text, toolCalls, toolResults, finishReason }) => {
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     console.log('🔹 ADIM TAMAMLANDI');

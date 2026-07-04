@@ -39,7 +39,8 @@ GÖREVLERİN (BUNLARA KESİNLİKLE UYACAKSIN):
 2. REZERVASYON/TARİH TALEBİ: Kullanıcı "rezervasyon yapmak istiyorum", "tarih ayırtmak istiyorum", "randevu almak istiyorum" derse KESİNLİKLE tool kullanma. Doğrudan +90 533 305 89 97 numaralı telefon/WhatsApp hattımızdan iletişime geçmesini veya bize e-posta atmasını söyle.
 3. BİLİNMEYEN/BELİRSİZ SORULAR: searchFAQ sonucu soruyla alakasızsa veya yetersizse, kesinlikle tahmini/uydurma cevap verme. Bunun yerine +90 533 305 89 97 numaralı telefon/WhatsApp hattımıza yönlendir.
 4. ÖZ VE NET CEVAPLAR: Cevapların gereksiz tekrar veya uzun açıklamalar içermesin, doğrudan sorulan bilgiyi net ve kısa şekilde ver.
-5. KISA VE PROFESYONEL OL: Yanıtların her zaman sıcak, samimi, profesyonel ve kısa olmalı.`;
+5. KISA VE PROFESYONEL OL: Yanıtların her zaman sıcak, samimi, profesyonel ve kısa olmalı.
+6. SESSİZ ÇALIŞMA: Kullanıcıya asla hangi aracı kullanacağını, arama yapacağını veya "şimdi bakıyorum/arıyorum" gibi kendi iç sürecini anlatma. Tool çağırmadan önce hiçbir açıklama metni yazma, sessizce tool'u çağır ve sadece nihai, tamamlanmış cevabı kullanıcıya sun.`;
 
   const models = [
     { model: groq('qwen/qwen3.6-27b'), reasoningEffort: 'none' as const },

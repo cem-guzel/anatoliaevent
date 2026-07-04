@@ -53,6 +53,24 @@ GÖREVLERİN (BUNLARA KESİNLİKLE UYACAKSIN):
         system: SYSTEM_PROMPT,
         messages: converted,
         stopWhen: stepCountIs(5),
+         onStepFinish: ({ text, toolCalls, toolResults, finishReason }) => {
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    console.log('🔹 ADIM TAMAMLANDI');
+    console.log('Bitiş sebebi:', finishReason);
+    if (toolCalls.length > 0) {
+      console.log('📞 Çağrılan tool(lar):', toolCalls.map(tc => ({
+        name: tc.toolName,
+        args: tc.input
+      })));
+    }
+    if (toolResults.length > 0) {
+      console.log('📦 Tool sonuçları:', JSON.stringify(toolResults, null, 2));
+    }
+    if (text) {
+      console.log('💬 Üretilen metin:', text);
+    }
+    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+  },
         tools: {
           searchFAQ: tool({
             description: 'Anatolia Event\'in kapasite, mekan, menü, dekorasyon, ödeme, rezervasyon süreci gibi konularda sıkça sorulan sorularda bilgi arar.',

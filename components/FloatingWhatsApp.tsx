@@ -13,7 +13,7 @@ export default function FloatingWhatsApp() {
       transition={{ duration: 0.5, delay: 1 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
-      className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[100] bg-[#25D366] rounded-full shadow-[0_10_25px_rgba(37,211,102,0.4)] flex items-center justify-center transition-colors duration-300 group overflow-hidden"
+      className="fixed bottom-24 right-6 md:bottom-28 md:right-8 z-[100] bg-[#25D366] rounded-full shadow-[0_10_25px_rgba(37,211,102,0.4)] flex items-center justify-center transition-colors duration-300 group overflow-hidden"
       aria-label="WhatsApp ile İletişime Geçin"
       style={{ width: '60px', height: '60px' }} // Buton boyutu
     >

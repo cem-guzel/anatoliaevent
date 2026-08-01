@@ -1,4 +1,3 @@
-# Anatolia Event
 
 Bir etkinlik ve düğün mekanı için geliştirilmiş, görsel yönetimi ve yapay zeka destekli müşteri asistanı içeren modern bir tanıtım platformu.
 

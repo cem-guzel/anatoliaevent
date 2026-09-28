@@ -42,92 +42,81 @@ GÖREVLERİN (BUNLARA KESİNLİKLE UYACAKSIN):
 5. KISA VE PROFESYONEL OL: Yanıtların her zaman sıcak, samimi, profesyonel ve kısa olmalı.
 6. SESSİZ ÇALIŞMA: Kullanıcıya asla hangi aracı kullanacağını, arama yapacağını veya "şimdi bakıyorum/arıyorum" gibi kendi iç sürecini anlatma. Tool çağırmadan önce hiçbir açıklama metni yazma, sessizce tool'u çağır ve sadece nihai, tamamlanmış cevabı kullanıcıya sun.`;
 
-  const models = [
-    { model: groq('qwen/qwen3.6-27b'), reasoningEffort: 'none' as const },
-    { model: groq('openai/gpt-oss-120b'), reasoningEffort: 'low' as const },
-    { model: groq('openai/gpt-oss-20b'), reasoningEffort: 'low' as const },
-  ];
+  // Groq production modeli. Model bir gün yine kaldırılırsa kodu değiştirmeden
+  // Vercel'den GROQ_MODEL ortam değişkenini güncelleyip redeploy etmen yeterli.
+  const MODEL_ID = process.env.GROQ_MODEL ?? 'openai/gpt-oss-20b';
 
-  for (let i = 0; i < models.length; i++) {
-    try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 45000); // 45 saniye
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 45000); // 45 saniye
 
-      const result = streamText({
-        model: models[i].model,
-        system: SYSTEM_PROMPT,
-        messages: converted,
-        stopWhen: stepCountIs(5),
-        maxOutputTokens: 4096,
-        abortSignal: controller.signal,
-        providerOptions: {
-          groq: {
-            reasoningEffort: models[i].reasoningEffort,
-          },
-        },
-        onStepFinish: ({ text, toolCalls, toolResults, finishReason }) => {
-          clearTimeout(timeoutId);
-          console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-          console.log('🔹 ADIM TAMAMLANDI');
-          console.log('Bitiş sebebi:', finishReason);
-          if (toolCalls.length > 0) {
-            console.log('📞 Çağrılan tool(lar):', toolCalls.map(tc => ({
-              name: tc.toolName,
-              args: tc.input
-            })));
-          }
-          if (toolResults.length > 0) {
-            console.log('📦 Tool sonuçları:', JSON.stringify(toolResults, null, 2));
-          }
-          if (text) {
-            console.log('💬 Üretilen metin:', text);
-          }
-          console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-        },
-        tools: {
-          searchFAQ: tool({
-            description: 'Anatolia Event\'in kapasite, mekan, menü, dekorasyon, ödeme, rezervasyon süreci gibi konularda sıkça sorulan sorularda bilgi arar.',
-            inputSchema: z.object({
-              question: z.string().describe('Kullanıcının sorduğu soru veya konu'),
-            }),
-            execute: async ({ question }) => {
-              try {
-                console.log('🔍 searchFAQ çağrıldı, soru:', question);
-                const results = await searchKnowledge(question, 3);
-                console.log('📊 Bulunan sonuçlar:', JSON.stringify(results, null, 2));
-
-                if (results.length === 0) {
-                  return 'Bu konuda sistemde bilgi bulunamadı.';
-                }
-
-                return results.map(r => r.content).join(' ');
-              } catch (err) {
-                console.error('❌ searchFAQ hatası:', err);
-                return 'Bilgi tabanı sorgusu sırasında bir hata oluştu.';
-              }
-            },
-          }),
-        },
-      });
-
-      return result.toUIMessageStreamResponse();
-
-    } catch (err: unknown) {
-      const isRateLimit = err instanceof Error && (
-        err.message.includes('429') ||
-        err.message.includes('rate') ||
-        err.message.includes('limit')
-      );
-      const isTimeout = err instanceof Error && err.name === 'AbortError';
-
-      if ((isRateLimit || isTimeout) && i < models.length - 1) {
-        console.warn(`Model ${i} ${isTimeout ? 'zaman aşımına uğradı' : 'rate limit yedi'}, sonraki deneniyor...`);
-        continue;
+  const result = streamText({
+    model: groq(MODEL_ID),
+    system: SYSTEM_PROMPT,
+    messages: converted,
+    stopWhen: stepCountIs(5),
+    maxOutputTokens: 4096,
+    abortSignal: controller.signal,
+    providerOptions: {
+      groq: {
+        reasoningEffort: 'low',
+      },
+    },
+    onStepFinish: ({ text, toolCalls, toolResults, finishReason }) => {
+      clearTimeout(timeoutId);
+      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+      console.log('🔹 ADIM TAMAMLANDI');
+      console.log('Bitiş sebebi:', finishReason);
+      if (toolCalls.length > 0) {
+        console.log('📞 Çağrılan tool(lar):', toolCalls.map(tc => ({
+          name: tc.toolName,
+          args: tc.input
+        })));
       }
+      if (toolResults.length > 0) {
+        console.log('📦 Tool sonuçları:', JSON.stringify(toolResults, null, 2));
+      }
+      if (text) {
+        console.log('💬 Üretilen metin:', text);
+      }
+      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    },
+    onError: ({ error }) => {
+      clearTimeout(timeoutId);
+      console.error('❌ STREAM HATASI:', error);
+    },
+    onFinish: () => {
+      clearTimeout(timeoutId);
+    },
+    tools: {
+      searchFAQ: tool({
+        description: 'Anatolia Event\'in kapasite, mekan, menü, dekorasyon, ödeme, rezervasyon süreci gibi konularda sıkça sorulan sorularda bilgi arar.',
+        inputSchema: z.object({
+          question: z.string().describe('Kullanıcının sorduğu soru veya konu'),
+        }),
+        execute: async ({ question }) => {
+          try {
+            console.log('🔍 searchFAQ çağrıldı, soru:', question);
+            const results = await searchKnowledge(question, 3);
+            console.log('📊 Bulunan sonuçlar:', JSON.stringify(results, null, 2));
 
-      throw err;
-    }
-  }
+            if (results.length === 0) {
+              return 'Bu konuda sistemde bilgi bulunamadı.';
+            }
 
-  throw new Error('Tüm modeller başarısız.');
+            return results.map(r => r.content).join(' ');
+          } catch (err) {
+            console.error('❌ searchFAQ hatası:', err);
+            return 'Bilgi tabanı sorgusu sırasında bir hata oluştu.';
+          }
+        },
+      }),
+    },
+  });
+
+  return result.toUIMessageStreamResponse({
+    onError: (error) => {
+      console.error('❌ YANIT HATASI:', error);
+      return 'Şu an yanıt veremiyorum, lütfen birazdan tekrar deneyin. Bize +90 533 305 89 97 numaralı telefon/WhatsApp hattımızdan da ulaşabilirsiniz.';
+    },
+  });
 }

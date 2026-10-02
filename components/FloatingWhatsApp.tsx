@@ -13,15 +13,14 @@ export default function FloatingWhatsApp() {
       transition={{ duration: 0.5, delay: 1 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
-      className="fixed bottom-24 right-6 md:bottom-28 md:right-8 z-[100] bg-[#25D366] rounded-full shadow-[0_10_25px_rgba(37,211,102,0.4)] flex items-center justify-center transition-colors duration-300 group overflow-hidden"
+      className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[100] w-[56px] h-[56px] bg-[#25D366] rounded-full shadow-[0_10px_25px_rgba(37,211,102,0.35)] flex items-center justify-center"
       aria-label="WhatsApp ile İletişime Geçin"
-      style={{ width: '60px', height: '60px' }} // Buton boyutu
     >
       {/* Orijinal WhatsApp SVG İkonu */}
       <svg 
         viewBox="0 0 24 24" 
-        width="32" 
-        height="32" 
+        width="28" 
+        height="28" 
         fill="currentColor" 
         className="text-white"
         xmlns="http://www.w3.org/2000/svg"

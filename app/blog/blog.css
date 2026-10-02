@@ -1,0 +1,33 @@
+/* ─── BLOG: DERGİ TİPOGRAFİSİ ─── */
+
+.font-editorial {
+  font-family: var(--font-editorial, "Cormorant Garamond"), Georgia, "Times New Roman", serif;
+}
+
+/* Yazı gövdesi */
+.article-body {
+  font-size: 1.125rem;
+  line-height: 1.85;
+  color: rgb(68 64 60); /* stone-700 */
+  font-weight: 300;
+}
+@media (min-width: 768px) {
+  .article-body { font-size: 1.1875rem; }
+}
+
+.article-body > p + p { margin-top: 1.4em; }
+
+/* İlk paragrafın büyük baş harfi */
+.article-body .drop-cap::first-letter {
+  font-family: var(--font-editorial, "Cormorant Garamond"), Georgia, serif;
+  float: left;
+  font-size: 5.2em;
+  line-height: 0.82;
+  font-weight: 300;
+  padding: 0.06em 0.12em 0 0;
+  color: rgb(28 25 23); /* stone-900 */
+}
+
+/* Başlıklara tıklandığında navbar altında kalmasın */
+.article-body h2 { scroll-margin-top: 7rem; }
+

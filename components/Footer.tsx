@@ -25,6 +25,7 @@ export default function Footer() {
                 <li><Link href="/#hakkimizda" className="hover:text-stone-900 transition-colors duration-300">Hakkımızda</Link></li>
                 <li><Link href="/hizmetlerimiz" className="hover:text-stone-900 transition-colors duration-300">Hizmetlerimiz</Link></li>
                 <li><Link href="/galeri" className="hover:text-stone-900 transition-colors duration-300">Galeri</Link></li>
+                   <li><Link href="/blog" className="hover:text-stone-900 transition-colors duration-300">Blog</Link></li>
               </ul>
             </div>
           </div>

@@ -12,6 +12,7 @@ const navLinks = [
   { name: "Hizmetlerimiz", href: "/hizmetlerimiz" },
   { name: "Menülerimiz", href: "/menuler" },
   { name: "Galeri", href: "/galeri" },
+  { name: "Blog", href: "/blog" },
   { name: "S.S.S", href: "/sss" },
 ];
 

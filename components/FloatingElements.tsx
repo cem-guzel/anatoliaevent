@@ -1,11 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, animate } from "framer-motion";
-import { Instagram } from "lucide-react";
 
 export default function FloatingElements() {
   const [isVisible, setIsVisible] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [igHover, setIgHover] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -90,34 +90,74 @@ export default function FloatingElements() {
         )}
       </AnimatePresence>
 
-      {/* ─── SAĞ: Instagram ─── */}
-      <motion.div
+      {/* ─── SAĞ: Instagram ───
+          Yazı ve çizgi "mix-blend-difference" ile her zeminde okunur kalır.
+          Logo ise kendi renklerini koruyabilmesi için ayrı bir katmanda durur
+          (blend modu içinde olsaydı renkleri tersine dönerdi). */}
+      <motion.a
+        href="https://instagram.com/anatoliaeventkirdugunu"
+        target="_blank"
+        rel="noreferrer"
+        aria-hidden
+        tabIndex={-1}
+        onMouseEnter={() => setIgHover(true)}
+        onMouseLeave={() => setIgHover(false)}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5, delay: 0.5 }}
-        className="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col items-center mix-blend-difference"
+        className="fixed right-6 bottom-[calc(50%+1.75rem)] z-50 hidden lg:flex flex-col items-center w-9 mix-blend-difference cursor-pointer"
       >
-        <a
-          href="https://instagram.com/anatoliaeventkirdugunu"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Instagram'da takip et"
-          className="group flex flex-col items-center cursor-pointer text-white/60 hover:text-white transition-colors duration-500"
+        <div
+          className={`w-[1px] mb-4 transition-all duration-500 ease-out ${
+            igHover ? "h-16 bg-white" : "h-10 bg-white/70"
+          }`}
+        />
+        <span
+          className={`text-[10px] tracking-[0.4em] uppercase font-normal transition-colors duration-500 ${
+            igHover ? "text-white" : "text-white/90"
+          }`}
+          style={{ writingMode: "vertical-rl" }}
         >
-          <div className="w-[1px] h-10 mb-4 group-hover:h-16 bg-white/30 group-hover:bg-white transition-all duration-500 ease-out" />
+          Instagram&apos;da Keşfedin
+        </span>
+      </motion.a>
 
-          <span
-            className="text-[10px] tracking-[0.4em] uppercase font-light"
-            style={{ writingMode: "vertical-rl" }}
-          >
-            Instagram&apos;da Keşfedin
-          </span>
-
-          <div className="w-8 h-8 mt-4 rounded-full border border-white/30 group-hover:scale-110 group-hover:border-white transition-all duration-700 flex items-center justify-center">
-            <Instagram className="w-3.5 h-3.5 text-white/50 group-hover:text-white transition-colors duration-500" strokeWidth={1.5} />
-          </div>
-        </a>
-      </motion.div>
+      <motion.a
+        href="https://instagram.com/anatoliaeventkirdugunu"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Instagram'da keşfedin"
+        onMouseEnter={() => setIgHover(true)}
+        onMouseLeave={() => setIgHover(false)}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5, delay: 0.5 }}
+        className="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden lg:flex items-center justify-center w-9 h-9"
+      >
+        <span
+          className={`w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-700 ease-out ${
+            igHover ? "scale-110 border-stone-400" : "scale-100 border-stone-400/50"
+          }`}
+        >
+          {/* Instagram ikonu — yalnızca çizgisi kendi renk geçişinde */}
+          <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+            <defs>
+              <linearGradient id="ig-grad" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#feda75" />
+                <stop offset="25%" stopColor="#fa7e1e" />
+                <stop offset="50%" stopColor="#d62976" />
+                <stop offset="75%" stopColor="#962fbf" />
+                <stop offset="100%" stopColor="#4f5bd5" />
+              </linearGradient>
+            </defs>
+            <g stroke="url(#ig-grad)">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </g>
+          </svg>
+        </span>
+      </motion.a>
     </>
   );
 }

@@ -35,7 +35,7 @@ export default function FloatingChatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.95 }}
             transition={{ duration: 0.35, ease: [0.65, 0, 0.35, 1] }}
-            className="fixed bottom-24 right-6 md:bottom-28 md:right-8 z-[100] w-[90vw] max-w-[380px] h-[70vh] max-h-[560px] rounded-2xl overflow-hidden flex flex-col shadow-2xl border border-white/10"
+            className="fixed bottom-24 left-6 md:bottom-28 md:left-8 z-[100] w-[calc(100vw-3rem)] max-w-[380px] h-[70vh] max-h-[560px] rounded-2xl overflow-hidden flex flex-col shadow-2xl border border-white/10"
             style={{
               background: "linear-gradient(180deg, rgba(28,25,20,0.97) 0%, rgba(18,16,13,0.98) 100%)",
               backdropFilter: "blur(20px)",
@@ -63,7 +63,7 @@ export default function FloatingChatbot() {
             {/* Mesajlar */}
             <div
               ref={scrollRef}
-              className="flex-1 overflow-y-auto px-4 py-4 space-y-3 scrollbar-thin scrollbar-thumb-white/10"
+              className="chat-scroll flex-1 overflow-y-auto px-4 py-4 space-y-3"
             >
               {messages.length === 0 && (
                 <div className="h-full flex flex-col items-center justify-center text-center px-4">
@@ -137,7 +137,7 @@ export default function FloatingChatbot() {
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.92 }}
         aria-label={isOpen ? "Sohbeti kapat" : "Sohbeti aç"}
-        className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[100] w-[56px] h-[56px] rounded-full flex items-center justify-center shadow-[0_10px_25px_rgba(201,161,95,0.35)]"
+        className="fixed bottom-6 left-6 md:bottom-8 md:left-8 z-[100] w-[56px] h-[56px] rounded-full flex items-center justify-center shadow-[0_10px_25px_rgba(201,161,95,0.35)]"
         style={{ background: "#c9a15f" }}
       >
         <AnimatePresence mode="wait">

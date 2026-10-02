@@ -3,9 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "../components/Footer";
 import FloatingElements from "../components/FloatingElements";
-//import FloatingWhatsApp from "../components/FloatingWhatsApp";
-//import FloatingChatbot from "@/components/FloatingChatbot";
-import FloatingActions from "@/components/FloatingActions";
+import FloatingWhatsApp from "../components/FloatingWhatsApp";
+import FloatingChatbot from "@/components/FloatingChatbot";
 
 
 import { Analytics } from '@vercel/analytics/next';
@@ -57,14 +56,6 @@ export const metadata: Metadata = {
   verification: {
     google: "LBQrd9SrZw3GJlnD3kdUzJXypI27VnugTcyUcvqruW4",
   },
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon.ico", type: "image/x-icon" },
-    ],
-    apple: "/favicon.ico",
-    shortcut: "/favicon.ico",
-  },
 };
 
 // DEĞİŞİKLİK BURADA: jsonLd artık bir dizi [ ... ] oldu ve içine WebSite eklendi.
@@ -102,7 +93,17 @@ const jsonLd = [
       { "@type": "City", "name": "Kemerburgaz" },
       { "@type": "City", "name": "İstanbul" }
     ],
-    "priceRange": "₺₺₺"
+    "priceRange": "₺₺₺",
+    "logo": "https://xn--krdn-2raab1zsf.com.tr/logo.png",
+    "image": "https://xn--krdn-2raab1zsf.com.tr/logo.png"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Anatolia Event",
+    "url": "https://xn--krdn-2raab1zsf.com.tr",
+    "logo": "https://xn--krdn-2raab1zsf.com.tr/logo.png",
+    "sameAs": ["https://www.instagram.com/anatoliaeventkirdugunu/"]
   },
   {
     "@context": "https://schema.org",
@@ -129,9 +130,9 @@ export default function RootLayout({
         {children}
         <Footer />
         <FloatingElements />
-       
-        <FloatingActions />
-              <Analytics />
+        <FloatingChatbot />
+        <FloatingWhatsApp />
+        <Analytics />
 
       </body>
     </html>

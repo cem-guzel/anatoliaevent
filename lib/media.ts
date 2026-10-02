@@ -21,12 +21,12 @@ export const MEDIA = {
     evlenmeTeklifi:     "/evlenmeteklifikaranlikkirmizi.jpg",
     kapalıAlan:         "/kapalialandaortam.jpg",
     kina:               "/kina.jpg",
-    kina2:              "/kina2.jpg",
+    kina2:              "/kına2.jpg",
     koltuklular:        "/koltukluluksdugun.jpg",
     luksmasaduzen:      "/luksmasaduzen.JPG",
     masaCicekSabah:     "/masaciceksabah.JPG",
-    masaDuzeni:         "/masaduzeni.jpg",       // Türkçe karaktersiz versiyon
-    masaDuzeniJPG:      "/masaduzeni.JPG",       // Büyük harfli versiyon
+    masaDuzeni:         "/masaduzeni.JPG",       // Türkçe karaktersiz versiyon
+    masaDuzeniJPG:      "/masadüzeni.jpg",       // Büyük harfli versiyon
     yukarıdanGece:      "/yukaridancekilmisgece.JPG",
   },
 

@@ -222,7 +222,7 @@ export const posts: BlogPost[] = [
     excerpt:
       "Gün batımından önceki o kısa zaman dilimi, kır düğününün en değerli anıdır. Programınızı ışığa göre kurmanın püf noktaları.",
     category: "Fotoğraf",
-    coverImage: MEDIA.photos.evlenmeTeklifi,
+    coverImage: MEDIA.photos.ciftFotografi,
     coverAlt: "Gün batımı ışığında el ele yürüyen gelin ve damat",
     author: "Anatolia Event",
     publishedAt: "2026-09-15",
